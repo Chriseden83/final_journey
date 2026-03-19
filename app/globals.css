@@ -1,26 +1,2047 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Professional Funeral Services Color Palette */
+
+  /* Primary - Deep Navy/Charcoal for authority and trust */
+  --navy-dark: #1a1f2e;
+  --navy: #242b3d;
+  --charcoal: #2d3748;
+  --charcoal-light: #4a5568;
+
+  /* Accent - Warm Gold for elegance and compassion */
+  --accent-gold: #c9a962;
+  --accent-gold-light: #d4b87a;
+  --accent-gold-hover: #b8952f;
+
+  /* Neutrals - Warm tones for comfort */
+  --cream: #faf8f5;
+  --cream-dark: #f5f0ea;
+  --gray-warm: #e8e4df;
+  --gray-muted: #9ca3af;
+  --white: #ffffff;
+  --white-warm: #fdfcfb;
+
+  /* Text colors */
+  --text-primary: #1a1f2e;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --text-light: #f7fafc;
+
+  /* Status colors */
+  --error: #dc2626;
+  --error-dark: #991b1b;
+  --error-light: rgba(220, 38, 38, 0.1);
+  --error-border: rgba(220, 38, 38, 0.3);
+  --success: #22c55e;
+  --success-dark: #166534;
+  --success-light: rgba(34, 197, 94, 0.1);
+  --success-border: rgba(34, 197, 94, 0.3);
+
+  /* shadcn variables */
+  --background: oklch(0.99 0.005 90);
+  --foreground: oklch(0.2 0.02 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 260);
+  --primary: oklch(0.2 0.02 260);
+  --primary-foreground: oklch(0.98 0.005 90);
+  --secondary: oklch(0.96 0.008 80);
+  --secondary-foreground: oklch(0.2 0.02 260);
+  --muted: oklch(0.96 0.008 80);
+  --muted-foreground: oklch(0.45 0.02 260);
+  --accent: oklch(0.75 0.12 85);
+  --accent-foreground: oklch(0.2 0.02 260);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.9 0.01 80);
+  --input: oklch(0.9 0.01 80);
+  --ring: oklch(0.75 0.12 85);
+  --chart-1: oklch(0.75 0.12 85);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
+  --radius: 0.5rem;
+  --sidebar: oklch(0.98 0.005 90);
+  --sidebar-foreground: oklch(0.2 0.02 260);
+  --sidebar-primary: oklch(0.2 0.02 260);
+  --sidebar-primary-foreground: oklch(0.98 0.005 90);
+  --sidebar-accent: oklch(0.96 0.008 80);
+  --sidebar-accent-foreground: oklch(0.2 0.02 260);
+  --sidebar-border: oklch(0.9 0.01 80);
+  --sidebar-ring: oklch(0.75 0.12 85);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Typography - Professional serif for headings */
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Header Styles - Professional dark header */
+.header {
+  @apply fixed top-0 left-0 right-0 z-50;
+  background-color: var(--navy-dark);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid var(--white);
+}
+
+.nav-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between;
+}
+
+.logo {
+  @apply text-xl font-bold transition-colors;
+  color: var(--white);
+}
+
+.logo:hover {
+  color: var(--accent-gold);
+}
+
+/* Logo responsive display */
+.logo-mobile {
+  @apply block lg:hidden;
+}
+
+.logo-desktop {
+  @apply hidden lg:block;
+}
+
+/* Desktop Navigation */
+.nav-links-desktop {
+  @apply hidden lg:flex items-center gap-8 list-none m-0 p-0;
+}
+
+.nav-link {
+  @apply font-medium transition-all duration-300 relative py-2 text-sm tracking-wide uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.nav-link:hover {
+  color: var(--accent-gold);
+}
+
+.nav-link::after {
+  @apply absolute left-0 bottom-0 w-0 h-0.5 transition-all duration-300;
+  content: '';
+  background-color: var(--accent-gold);
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.nav-link-active {
+  color: var(--accent-gold);
+}
+
+.nav-link-active::after {
+  @apply w-full;
+  background-color: var(--accent-gold);
+}
+
+/* Mobile Hamburger */
+.hamburger-wrapper {
+  @apply lg:hidden relative;
+  z-index: 60;
+}
+
+/* Hamburger icon colors via CSS */
+.hamburger-wrapper .hamburger-react div {
+  background-color: var(--white) !important;
+}
+
+.hamburger-wrapper.hamburger-open .hamburger-react div {
+  background-color: var(--navy-dark) !important;
+}
+
+/* Mobile Overlay */
+.mobile-overlay {
+  @apply fixed inset-0 opacity-0 invisible lg:hidden;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 45;
+  transition:
+    opacity 0.6s cubic-bezier(0.33, 0, 0.2, 1),
+    visibility 0.6s;
+}
+
+.mobile-overlay-visible {
+  @apply opacity-100 visible;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  @apply fixed top-0 right-0 h-full shadow-2xl transform translate-x-full z-50 lg:hidden;
+  width: 70%;
+  background: var(--white) !important;
+  transition: transform 0.6s cubic-bezier(0.33, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu {
+    transition: none;
+  }
+}
+
+.mobile-menu-open {
+  @apply translate-x-0;
+}
+
+/* Mobile Menu Header */
+.mobile-menu-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.mobile-menu-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobile-menu-logo {
+  width: 56px !important;
+  height: 56px !important;
+  min-width: 56px;
+  min-height: 56px;
+}
+
+.mobile-menu-brand-text {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* Mobile Nav Links */
+.mobile-nav-links {
+  @apply flex flex-col list-none m-0;
+  padding: 1.5rem 0;
+  flex: 1;
+}
+
+.mobile-nav-item {
+  opacity: 0;
+  transform: translateX(30px);
+  transition:
+    opacity 0.4s cubic-bezier(0.33, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.33, 0, 0.2, 1);
+}
+
+.mobile-nav-item-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-nav-link {
+  @apply block py-4 text-lg transition-all tracking-wide;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: var(--navy);
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.mobile-nav-link:hover {
+  color: var(--accent-gold);
+  background-color: rgba(0, 0, 0, 0.03);
+  border-left-color: var(--accent-gold);
+}
+
+.mobile-nav-link-active {
+  @apply font-medium;
+  color: var(--accent-gold);
+  background-color: var(--cream);
+  border-left-color: var(--accent-gold);
+}
+
+/* Mobile Menu Footer */
+.mobile-menu-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(15px);
+  transition:
+    opacity 0.5s cubic-bezier(0.33, 0, 0.2, 1) 0.4s,
+    transform 0.5s cubic-bezier(0.33, 0, 0.2, 1) 0.4s;
+}
+
+.mobile-menu-footer-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu-social {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.mobile-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  transition: all 0.2s ease;
+}
+
+.mobile-social-link:hover {
+  color: var(--accent-gold);
+  transform: scale(1.1);
+}
+
+/* Service Page Hero - Diagonal Split Layout */
+.service-hero {
+  position: relative;
+  min-height: calc(100vh - 96px);
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 0;
+  background: var(--white);
+}
+
+.service-hero-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  width: 100%;
+}
+
+.service-hero-left {
+  position: relative;
+  width: 40%;
+  min-width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem;
+  color: var(--white);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+  overflow: hidden;
+  background: var(--accent-gold);
+}
+
+.service-hero-left-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.service-hero-left-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-hero-left-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gold);
+  opacity: 0.85;
+  z-index: 2;
+}
+
+.service-hero-left-content {
+  position: relative;
+  z-index: 10;
+}
+
+.service-hero-title {
+  font-family: var(--font-cormorant);
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.service-hero-underline {
+  width: 80px;
+  height: 3px;
+  background-color: var(--navy-dark) !important;
+  margin-bottom: 2rem;
+}
+
+.service-hero-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 3rem 4rem 8rem;
+  background: var(--white);
+  margin-left: -8%;
+}
+
+.service-hero-right-content {
+  max-width: 700px;
+  width: 100%;
+}
+
+.service-hero-right h2 {
+  font-family: var(--font-cormorant);
+  font-size: 2rem;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+.service-hero-right p {
+  color: var(--navy);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+.service-hero-right ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.service-hero-right ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--navy);
+}
+
+.service-hero-right ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+}
+
+/* Mobile responsive for service hero */
+@media (max-width: 1024px) {
+  .service-hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .service-hero-content {
+    flex-direction: column;
+  }
+
+  .service-hero-left {
+    width: 100%;
+    min-height: 50vh;
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    clip-path: none !important;
+  }
+
+  .service-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .service-hero-underline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .service-hero-right {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 5rem 2rem 3rem;
+  }
+
+  .service-hero-right h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  @apply py-16;
+  background-color: var(--navy-dark);
+  color: var(--white);
+}
+
+.footer-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.footer-grid {
+  @apply grid gap-8;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.footer-text {
+  @apply text-sm leading-relaxed;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-heading {
+  @apply text-lg font-semibold mb-4;
+  color: var(--accent-gold);
+}
+
+.footer-links {
+  @apply flex flex-col gap-3;
+}
+
+.footer-link {
+  @apply text-sm transition-colors;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-link:hover {
+  color: var(--accent-gold);
+}
+
+.footer-bottom {
+  @apply mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Main Content Offset for Fixed Header */
+.main-content {
+  @apply pt-24 min-h-screen;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========================
+   Button Styles
+   ======================== */
+
+.btn-primary {
+  @apply inline-flex items-center justify-center px-8 py-4 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300;
+  background-color: var(--accent-gold);
+  color: var(--navy-dark);
+  border: 2px solid var(--accent-gold);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-gold-hover);
+  border-color: var(--accent-gold-hover);
+  @apply shadow-lg;
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary:hover {
+    @apply transform-none;
+  }
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-8 py-4 font-semibold text-sm tracking-wide uppercase rounded transition-all duration-300;
+  color: var(--accent-gold);
+  border: 2px solid var(--accent-gold);
+  background-color: transparent;
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent-gold);
+  color: var(--navy-dark);
+  @apply shadow-lg;
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-secondary:hover {
+    @apply transform-none;
+  }
+}
+
+.btn-large {
+  @apply px-8 py-4 text-lg;
+}
+
+/* ========================
+   Hero Section
+   ======================== */
+
+.section-hero {
+  @apply relative flex items-center justify-center px-4 text-center overflow-hidden;
+  height: 100vh;
+  margin-top: -96px;
+  padding-top: 96px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 31, 46, 0.85) 0%,
+    rgba(26, 31, 46, 0.75) 100%
+  );
+}
+
+.section-hero::before {
+  content: '';
+  @apply absolute inset-0 -z-10;
+  background-image: url('/images/horses2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  @apply max-w-4xl mx-auto relative z-10;
+}
+
+.hero-title {
+  @apply text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight;
+  color: var(--white);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  @apply text-xl sm:text-2xl lg:text-3xl mb-6 font-light;
+  color: var(--accent-gold-light);
+}
+
+.hero-description {
+  @apply text-lg sm:text-xl mb-10 max-w-2xl mx-auto leading-relaxed;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-buttons {
+  @apply flex flex-col sm:flex-row gap-4 justify-center items-center;
+}
+
+/* ========================
+   General Sections
+   ======================== */
+
+.section {
+  @apply py-20 sm:py-24 lg:py-32 px-4;
+  background-color: var(--white);
+}
+
+.section-alt {
+  background-color: var(--cream);
+}
+
+.section-dark {
+  background-color: var(--navy-dark);
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto;
+}
+
+.section-heading {
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-center;
+  color: var(--text-primary);
+}
+
+.section-heading-light {
+  color: var(--white);
+}
+
+.section-subheading {
+  @apply text-lg sm:text-xl text-center mb-12 max-w-3xl mx-auto leading-relaxed;
+  color: var(--text-secondary);
+}
+
+.section-subheading-light {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.section-text {
+  @apply text-lg mb-6 leading-relaxed max-w-3xl mx-auto;
+  color: var(--text-secondary);
+}
+
+.section-text-center {
+  @apply text-center;
+}
+
+.section-cta {
+  @apply text-center mt-12;
+}
+
+/* Gold accent line under headings */
+.section-heading::after {
+  content: '';
+  @apply block w-20 h-1 mx-auto mt-6;
+  background-color: var(--accent-gold);
+}
+
+/* ========================
+   Services Grid
+   ======================== */
+
+.services-grid {
+  @apply grid gap-8 mt-12;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.service-card {
+  @apply p-8 rounded-lg transition-all duration-300 text-center;
+  background-color: var(--white);
+  border: 1px solid var(--gray-warm);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  border-color: var(--accent-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card:hover {
+    transform: none;
+  }
+}
+
+.service-icon-wrapper {
+  @apply flex items-center justify-center mb-4;
+}
+
+.service-icon {
+  @apply w-12 h-12;
+  filter: brightness(0) saturate(100%) invert(68%) sepia(32%) saturate(501%)
+    hue-rotate(6deg) brightness(92%) contrast(89%);
+}
+
+.service-title {
+  @apply text-xl font-semibold mb-4;
+  color: var(--text-primary);
+}
+
+.service-description {
+  @apply leading-relaxed;
+  color: var(--text-secondary);
+}
+
+/* ========================
+   Tributes Grid
+   ======================== */
+
+.tributes-grid {
+  @apply grid gap-8 mt-12;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.tribute-card {
+  @apply rounded-lg overflow-hidden transition-all duration-300;
+  background-color: var(--white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.tribute-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tribute-card:hover {
+    transform: none;
+  }
+}
+
+.tribute-image {
+  @apply w-full h-48 object-cover;
+}
+
+.tribute-content {
+  @apply p-6;
+}
+
+.tribute-name {
+  @apply text-xl font-semibold mb-1;
+  color: var(--text-primary);
+}
+
+.tribute-years {
+  @apply text-sm mb-4 font-medium;
+  color: var(--accent-gold);
+}
+
+.tribute-description {
+  @apply leading-relaxed text-sm;
+  color: var(--text-secondary);
+}
+
+.tribute-link {
+  @apply inline-flex items-center gap-2 mt-4 text-sm font-semibold uppercase tracking-wide transition-colors;
+  color: var(--accent-gold);
+}
+
+.tribute-link:hover {
+  color: var(--accent-gold-hover);
+}
+
+/* ========================
+   Gallery Grid
+   ======================== */
+
+.gallery-grid {
+  @apply grid gap-4 mt-12;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gallery-item {
+  @apply relative rounded-lg overflow-hidden aspect-square cursor-pointer;
+}
+
+.gallery-item img {
+  @apply w-full h-full object-cover transition-transform duration-500;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item:hover img {
+    transform: none;
+  }
+}
+
+.gallery-item::after {
+  content: '';
+  @apply absolute inset-0 bg-black opacity-0 transition-opacity duration-300;
+}
+
+.gallery-item:hover::after {
+  opacity: 0.2;
+}
+
+.gallery-placeholder {
+  @apply aspect-square rounded-lg flex items-center justify-center;
+  background-color: var(--gray-warm);
+}
+
+.gallery-placeholder-text {
+  @apply font-medium;
+  color: var(--text-secondary);
+}
+
+/* ========================
+   Testimonials Grid
+   ======================== */
+
+.testimonials-grid {
+  @apply grid gap-8 mt-12;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.testimonial-card {
+  @apply p-8 rounded-lg relative;
+  background-color: var(--cream);
+  border-left: 4px solid var(--accent-gold);
+}
+
+.testimonial-card::before {
+  content: '"';
+  @apply absolute top-4 left-6 text-6xl leading-none opacity-20;
+  font-family: var(--font-playfair), Georgia, serif;
+  color: var(--accent-gold);
+}
+
+.testimonial-quote {
+  @apply text-lg leading-relaxed mb-6 relative z-10;
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+.testimonial-author {
+  @apply font-semibold text-sm uppercase tracking-wide;
+  color: var(--accent-gold);
+}
+
+/* ========================
+   Prices Section
+   ======================== */
+
+.prices-highlight {
+  @apply text-center p-10 rounded-lg mt-12 max-w-lg mx-auto;
+  background-color: var(--white);
+  border: 2px solid var(--accent-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.price-feature {
+  @apply text-lg mb-2 uppercase tracking-wide;
+  color: var(--text-secondary);
+}
+
+.price-amount {
+  @apply text-5xl sm:text-6xl font-bold mb-3;
+  color: var(--accent-gold);
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.price-note {
+  @apply text-sm;
+  color: var(--text-muted);
+}
+
+/* ========================
+   CTA Banner Section
+   ======================== */
+
+.section-cta-banner {
+  @apply py-20 sm:py-24 px-4 text-center relative overflow-hidden;
+  background-color: var(--navy-dark);
+}
+
+.section-cta-banner::before {
+  content: '';
+  @apply absolute inset-0 opacity-10;
+  background-image: url('/images/horses3.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-banner-heading {
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 relative z-10;
+  color: var(--white);
+}
+
+.cta-banner-text {
+  @apply text-lg sm:text-xl mb-10 max-w-2xl mx-auto relative z-10;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.809 0.105 251.813);
+  --chart-2: oklch(0.623 0.214 259.815);
+  --chart-3: oklch(0.546 0.245 262.881);
+  --chart-4: oklch(0.488 0.243 264.376);
+  --chart-5: oklch(0.424 0.199 265.638);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* ===== MuchLoved Funeral Listings Widget Styles ===== */
+.muchloved-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.ml-notice {
+  border-bottom: 1px solid var(--gray-warm);
+  padding: 30px;
+  background-color: rgba(201, 169, 98, 0.1);
+  margin-bottom: 1em;
+  border-radius: 8px;
+}
+
+.ml-notice p {
+  text-align: left;
+  margin: 0;
+}
+
+.ml-notice:last-child {
+  border: none;
+}
+
+h3.ml-name {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-family: var(--font-playfair), serif;
+}
+
+h3.ml-name a {
+  color: var(--navy);
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+.ml-link {
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.ml-link:hover {
+  text-decoration: underline;
+  color: var(--accent-gold);
+}
+
+.ml-clear {
+  clear: both;
+}
+
+.ml-details {
+  margin-left: 95px;
+}
+
+.ml-thumb img {
+  border-radius: 8px;
+  float: left;
+  margin-top: -0.5em;
+  padding-right: 15px;
+}
+
+.ml-title {
+  margin-bottom: 5px;
+}
+
+.ml-heading {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-playfair), serif;
+  font-size: 1.75rem;
+  color: var(--navy);
+}
+
+.muchloved-funerals-widget-search-results:empty {
+  display: none;
+}
+
+.ml-funeral-list-item {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.ml-link {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.muchloved-funerals-search-summary {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: var(--text-secondary);
+}
+
+/* Search Results Card Styling */
+.muchloved-cards .muchloved-funerals-widget-search-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+  margin-top: 1.5rem;
+}
+
+/* Style search result items as cards */
+.muchloved-cards .muchloved-funerals-widget-search-results .ml-notice {
+  border-bottom: none;
+  padding: 0;
+  background-color: var(--white);
+  margin-bottom: 0;
+  margin-left: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 480px;
+}
+
+.muchloved-cards .muchloved-funerals-widget-search-results .ml-notice:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Thumbnail styling for search result cards */
+.muchloved-cards .muchloved-funerals-widget-search-results .ml-thumb {
+  width: 100%;
+  height: 280px !important;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.muchloved-cards .muchloved-funerals-widget-search-results .ml-thumb img {
+  float: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Details section styling for search result cards */
+.muchloved-cards .muchloved-funerals-widget-search-results .ml-details {
+  margin-left: 0;
+  padding: 1.5rem;
+  padding-bottom: 4rem;
+  flex: 1 1 auto;
+  display: block;
+  position: relative;
+}
+
+/* Position link at absolute bottom left */
+.muchloved-cards
+  .muchloved-funerals-widget-search-results
+  .ml-details
+  a.ml-link:nth-of-type(2) {
+  position: absolute !important;
+  bottom: 1.5rem !important;
+  left: 1.5rem !important;
+}
+
+/* Name styling for search results */
+.muchloved-cards .muchloved-funerals-widget-search-results h3.ml-name {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.muchloved-cards .muchloved-funerals-widget-search-results h3.ml-name a {
+  color: var(--text-primary);
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Text clamping for search results */
+.muchloved-cards .muchloved-funerals-widget-search-results .ml-notice p,
+.muchloved-cards
+  .muchloved-funerals-widget-search-results
+  .ml-notice
+  .ml-details
+  > *:not(h3):not(.ml-link):not(.ml-thumb) {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.6;
+  max-height: calc(1.6em * 6);
+}
+
+/* Hide ml-funeral-list-item default margin in search results */
+.muchloved-cards
+  .muchloved-funerals-widget-search-results
+  .ml-funeral-list-item {
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+/* Hide all links except View Tribute (2nd link) in search results */
+.muchloved-cards .muchloved-funerals-widget-search-results .ml-link {
+  display: none !important;
+}
+
+.muchloved-cards
+  .muchloved-funerals-widget-search-results
+  .ml-details
+  a.ml-link:nth-of-type(2) {
+  display: inline-block !important;
+  color: var(--accent-gold) !important;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.muchloved-funerals-search-box {
+  padding: 12px 16px;
+  border: 1px solid var(--gray-warm);
+  width: 300px;
+  box-sizing: border-box;
+  background: var(--cream);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.muchloved-funerals-search-box:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+}
+
+.muchloved-funerals-search-button {
+  color: var(--white);
+  line-height: 1;
+  background-color: var(--navy);
+  border: 1px solid var(--navy);
+  padding: 12px 24px;
+  margin-left: 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.muchloved-funerals-search-button:hover {
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+.ml-garden-link {
+  margin-bottom: 0;
+  margin-top: 6px;
+}
+
+.muchloved-notice-search {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+span.ml-funeral-location {
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+.line {
+  height: 1px;
+  background-color: var(--gray-warm);
+  margin-bottom: 1.5rem;
+}
+
+/* MuchLoved Widget Media Queries */
+@media only screen and (max-width: 768px) {
+  .ml-details {
+    margin-left: 0;
+    width: 100%;
+    padding: 0;
+  }
+
+  .ml-thumb img {
+    float: none;
+    margin-bottom: 15px;
+    padding-right: 0;
+  }
+
+  .muchloved-funerals-search-box {
+    width: 100%;
+  }
+
+  .muchloved-notice-search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .muchloved-funerals-search-button {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* ===== Tributes Page Styles ===== */
+.tributes-page {
+  min-height: 100vh;
+}
+
+.tributes-hero {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 80px 20px 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.tributes-hero-content {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.tributes-hero h1 {
+  font-family: var(--font-playfair), serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent-gold);
+  text-align: center !important;
+  width: 100%;
+}
+
+.tributes-hero p {
+  font-size: 1.125rem;
+  color: var(--gray-warm);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+  text-align: center !important;
+}
+
+.tributes-content {
+  padding: 40px 20px 80px;
+  background-color: var(--cream);
+}
+
+.tributes-content .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ===== MuchLoved Card-Style Tributes ===== */
+
+/* Home page tributes widget - card layout */
+.home-tributes-widget {
+  width: 100%;
+}
+
+.home-tributes-widget .muchloved-funerals-widget,
+.muchloved-cards .muchloved-funerals-widget {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+/* Style each tribute notice as a card */
+.home-tributes-widget .ml-notice,
+.muchloved-cards .ml-notice {
+  border-bottom: none;
+  padding: 0;
+  background-color: var(--white);
+  margin-bottom: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 480px;
+}
+
+.home-tributes-widget .ml-notice:hover,
+.muchloved-cards .ml-notice:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Thumbnail styling for cards */
+.home-tributes-widget .ml-thumb,
+.muchloved-cards .ml-thumb {
+  width: 100%;
+  height: 280px !important;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.home-tributes-widget .ml-thumb img,
+.muchloved-cards .ml-thumb img {
+  float: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Details section styling for cards */
+.home-tributes-widget .ml-details,
+.muchloved-cards .ml-details,
+.tributes-content .ml-details {
+  margin-left: 0;
+  padding: 1.5rem;
+  padding-bottom: 4rem;
+  flex: 1 1 auto;
+  display: block;
+  position: relative;
+}
+
+/* Position link at absolute bottom left of details section */
+.home-tributes-widget .ml-details a.ml-link:nth-of-type(2),
+.muchloved-cards .ml-details a.ml-link:nth-of-type(2),
+.tributes-content .ml-details a.ml-link:nth-of-type(2) {
+  position: absolute !important;
+  bottom: 1.5rem !important;
+  left: 1.5rem !important;
+}
+
+/* Name styling */
+.home-tributes-widget h3.ml-name,
+.muchloved-cards h3.ml-name {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.home-tributes-widget h3.ml-name a,
+.muchloved-cards h3.ml-name a {
+  color: var(--text-primary);
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+.home-tributes-widget h3.ml-name a:hover,
+.muchloved-cards h3.ml-name a:hover {
+  color: var(--text-primary);
+}
+
+/* Date/location styling */
+.home-tributes-widget .ml-notice p,
+.muchloved-cards .ml-notice p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+/* Text clamping - limit to 6 lines with ellipsis */
+.home-tributes-widget .ml-notice p,
+.muchloved-cards .ml-notice p,
+.tributes-content .ml-notice p {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 6;
+}
+
+.home-tributes-widget span.ml-funeral-location,
+.muchloved-cards span.ml-funeral-location {
+  color: var(--accent-gold);
+  font-weight: 500;
+}
+
+/* Link styling */
+.home-tributes-widget .ml-link,
+.muchloved-cards .ml-link {
+  color: var(--accent-gold);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  padding-top: 1rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Hide all links by default */
+.home-tributes-widget .ml-link,
+.muchloved-cards .ml-link,
+.tributes-content .ml-link {
+  display: none !important;
+}
+
+/* Show only View Tribute link (second link in the list) */
+.home-tributes-widget .ml-details a.ml-link:nth-of-type(2),
+.muchloved-cards .ml-details a.ml-link:nth-of-type(2),
+.tributes-content .ml-details a.ml-link:nth-of-type(2),
+.home-tributes-widget .ml-notice a.ml-link:nth-of-type(2),
+.muchloved-cards .ml-notice a.ml-link:nth-of-type(2),
+.tributes-content .ml-notice a.ml-link:nth-of-type(2) {
+  display: block !important;
+  position: absolute !important;
+  bottom: 1.5rem !important;
+  left: 1.5rem !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  color: var(--accent-gold);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  width: auto;
+}
+
+.home-tributes-widget .ml-details a.ml-link:nth-of-type(2):hover,
+.muchloved-cards .ml-details a.ml-link:nth-of-type(2):hover,
+.tributes-content .ml-details a.ml-link:nth-of-type(2):hover {
+  color: var(--accent-gold-hover);
+  text-decoration: none;
+}
+
+.home-tributes-widget .ml-link:hover,
+.muchloved-cards .ml-link:hover {
+  color: var(--accent-gold-hover);
+  text-decoration: none;
+}
+
+.home-tributes-widget .ml-link::after,
+.muchloved-cards .ml-link::after,
+.tributes-content .ml-link::after {
+  content: ' →';
+}
+
+/* Limit items displayed - only on home page */
+.muchloved-limit-3 .ml-notice:nth-child(n + 4) {
+  display: none;
+}
+
+.muchloved-limit-6 .ml-notice:nth-child(n + 7) {
+  display: none;
+}
+
+/* Ensure tributes page shows ALL tributes */
+.tributes-content .ml-notice {
+  display: flex !important;
+}
+
+/* MuchLoved pagination styling */
+.tributes-content .muchloved-funerals-widget-pagination,
+.tributes-content .ml-pagination,
+.tributes-content [class*='pagination'] {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+.tributes-content .muchloved-funerals-widget-pagination a,
+.tributes-content .ml-pagination a,
+.tributes-content [class*='pagination'] a {
+  padding: 0.5rem 1rem;
+  background-color: var(--cream);
+  color: var(--navy);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.tributes-content .muchloved-funerals-widget-pagination a:hover,
+.tributes-content .ml-pagination a:hover,
+.tributes-content [class*='pagination'] a:hover {
+  background-color: var(--accent-gold);
+  color: var(--white);
+}
+
+.tributes-content .muchloved-funerals-widget-pagination a.active,
+.tributes-content .ml-pagination a.active,
+.tributes-content [class*='pagination'] a.active {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+/* ===== Tributes Page Card Layout ===== */
+.tributes-content .muchloved-container {
+  max-width: 1200px;
+}
+
+.tributes-content .muchloved-funerals-widget {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.tributes-content .ml-notice {
+  border-bottom: none;
+  padding: 0;
+  background-color: var(--white);
+  margin-bottom: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 480px;
+}
+
+.tributes-content .ml-notice:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+}
+
+.tributes-content .ml-thumb {
+  width: 100%;
+  height: 280px !important;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.tributes-content .ml-thumb img {
+  float: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.tributes-content .ml-details {
+  margin-left: 0;
+  padding: 1.5rem;
+  padding-bottom: 4rem;
+  flex: 1 1 auto;
+  display: block;
+  position: relative;
+}
+
+.tributes-content h3.ml-name {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.tributes-content h3.ml-name a {
+  color: var(--text-primary);
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+}
+
+.tributes-content h3.ml-name a:hover {
+  color: var(--text-primary);
+}
+
+.tributes-content .ml-notice p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.tributes-content span.ml-funeral-location {
+  color: var(--accent-gold);
+  font-weight: 500;
+}
+
+/* tributes-content link styling handled by global rules above */
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .home-tributes-widget .ml-notice:hover,
+  .muchloved-cards .ml-notice:hover,
+  .tributes-content .ml-notice:hover {
+    transform: none;
+  }
+}
+
+/* Mobile responsive cards */
+@media only screen and (max-width: 768px) {
+  .home-tributes-widget .muchloved-funerals-widget,
+  .tributes-content .muchloved-funerals-widget {
+    grid-template-columns: 1fr;
+  }
+
+  .home-tributes-widget .ml-thumb,
+  .tributes-content .ml-thumb {
+    height: 180px;
+  }
+}
+
+/* ========================
+   Contact Page Styles
+   ======================== */
+
+/* Contact Hero */
+.contact-hero {
+  @apply relative flex items-center justify-center px-4 text-center overflow-hidden;
+  min-height: 40vh;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 31, 46, 0.85) 0%,
+    rgba(26, 31, 46, 0.75) 100%
+  );
+}
+
+.contact-hero::before {
+  content: '';
+  @apply absolute inset-0 -z-10;
+  background-image: url('/images/horses2.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-hero-overlay {
+  @apply absolute inset-0;
+  background: rgba(26, 31, 46, 0.7);
+  z-index: 1;
+}
+
+.contact-hero-content {
+  @apply relative z-10;
+}
+
+.contact-hero-title {
+  @apply text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight;
+  color: var(--white);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.contact-hero-subtitle {
+  @apply text-lg sm:text-xl max-w-2xl mx-auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Contact Grid Layout */
+.contact-grid {
+  @apply grid gap-12 lg:gap-16;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+/* Contact Section Titles */
+.contact-section-title {
+  @apply text-2xl sm:text-3xl font-bold mb-4;
+  color: var(--text-primary);
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.contact-section-title::after {
+  content: '';
+  @apply block w-16 h-1 mt-4;
+  background-color: var(--accent-gold);
+}
+
+.contact-section-text {
+  @apply mb-8;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Contact Form Styles */
+.contact-form {
+  @apply space-y-6;
+}
+
+.form-group {
+  @apply space-y-2;
+}
+
+.form-label {
+  @apply block text-sm font-semibold uppercase tracking-wide;
+  color: var(--text-primary);
+}
+
+.form-label .required {
+  color: var(--error);
+}
+
+.form-input,
+.form-textarea {
+  @apply w-full px-4 py-3 rounded-lg transition-all duration-200;
+  border: 2px solid var(--gray-warm);
+  background-color: var(--white);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.15);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.form-input-error {
+  border-color: var(--error);
+}
+
+.form-input-error:focus {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px var(--error-border);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-error {
+  @apply text-sm mt-1 block;
+  color: #dc2626;
+}
+
+/* Radio button options */
+.form-options {
+  @apply grid gap-3 mt-2;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 480px) {
+  .form-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-option {
+  @apply flex items-center gap-3 p-4 rounded-lg cursor-pointer transition-all duration-200;
+  border: 2px solid var(--gray-warm);
+  background-color: var(--white);
+}
+
+.form-option:hover {
+  border-color: var(--accent-gold-light);
+  background-color: rgba(201, 169, 98, 0.05);
+}
+
+.form-option:has(.form-radio:checked) {
+  border-color: var(--accent-gold);
+  background-color: rgba(201, 169, 98, 0.1);
+}
+
+.form-radio {
+  @apply w-5 h-5 cursor-pointer;
+  accent-color: var(--accent-gold);
+}
+
+.form-option-label {
+  @apply text-sm font-medium cursor-pointer;
+  color: var(--text-primary);
+}
+
+/* Submit Button */
+.form-submit {
+  @apply w-full mt-4;
+}
+
+/* Form Status Messages */
+.form-success {
+  @apply p-4 rounded-lg mt-4 text-center;
+  background-color: var(--success-light);
+  border: 1px solid var(--success-border);
+  color: var(--success-dark);
+}
+
+.form-error-message {
+  @apply p-4 rounded-lg mt-4 text-center;
+  background-color: var(--error-light);
+  border: 1px solid var(--error-border);
+  color: var(--error-dark);
+}
+
+/* Contact Info Wrapper */
+.contact-info-wrapper {
+  @apply space-y-8;
+}
+
+/* Contact Map */
+.contact-map {
+  @apply rounded-lg overflow-hidden shadow-lg;
+  border: 2px solid var(--gray-warm);
+}
+
+/* Contact Details */
+.contact-details {
+  @apply space-y-6;
+}
+
+.contact-detail-item {
+  @apply flex gap-4 items-start;
+}
+
+.contact-detail-icon {
+  @apply flex items-center justify-center w-12 h-12 rounded-full shrink-0;
+  background-color: rgba(201, 169, 98, 0.15);
+  color: var(--accent-gold);
+  font-size: 1.25rem;
+}
+
+.contact-detail-content h3 {
+  @apply text-lg font-semibold mb-1;
+  color: var(--text-primary);
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.contact-detail-content p {
+  @apply text-sm;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.contact-link {
+  @apply block text-sm transition-colors;
+  color: var(--text-secondary);
+}
+
+.contact-link:hover {
+  color: var(--accent-gold);
+}
+
+/* Social Links */
+.contact-social {
+  @apply pt-6;
+  border-top: 1px solid var(--gray-warm);
+}
+
+.contact-social-title {
+  @apply text-lg font-semibold mb-4;
+  color: var(--text-primary);
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+.contact-social-links {
+  @apply flex gap-4;
+}
+
+.contact-social-link {
+  @apply flex items-center gap-2 px-5 py-3 rounded-lg transition-all duration-200;
+  background-color: var(--navy-dark);
+  color: var(--white);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.contact-social-link svg {
+  font-size: 1.25rem;
+}
+
+.contact-social-link:hover {
+  background-color: var(--accent-gold);
+  color: var(--navy-dark);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-social-link:hover {
+    transform: none;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .contact-hero {
+    min-height: 30vh;
+  }
+
+  .contact-hero-title {
+    @apply text-3xl;
+  }
+
+  .contact-social-links {
+    flex-direction: column;
+  }
 }
