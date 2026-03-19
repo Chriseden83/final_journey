@@ -5,8 +5,27 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Spin as Hamburger } from 'hamburger-react';
-import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import {
+  FaFacebook,
+  FaInstagram,
+  FaHome,
+  FaUsers,
+  FaConciergeBell,
+  FaHeart,
+  FaPoundSign,
+  FaEnvelope,
+  FaChevronRight,
+} from 'react-icons/fa';
 import { navLinks } from '@/lib/nav-links';
+
+const iconMap = {
+  home: FaHome,
+  about: FaUsers,
+  services: FaConciergeBell,
+  tributes: FaHeart,
+  prices: FaPoundSign,
+  contact: FaEnvelope,
+};
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -113,6 +132,7 @@ export default function MobileNav() {
         <ul className="mobile-nav-links" role="list">
           {navLinks.map((link, index) => {
             const isActive = pathname === link.href;
+            const IconComponent = iconMap[link.icon];
             return (
               <li
                 key={link.href}
@@ -127,7 +147,14 @@ export default function MobileNav() {
                   onClick={(e) => handleNavClick(e, link.sectionId)}
                   aria-current={isActive ? 'page' : undefined}
                 >
-                  {link.label}
+                  <span className="mobile-nav-link-icon">
+                    <IconComponent className="w-5 h-5" />
+                  </span>
+                  <span className="mobile-nav-link-text">{link.label}</span>
+                  <span className="mobile-nav-link-arrows">
+                    <FaChevronRight className="w-3 h-3" />
+                    <FaChevronRight className="w-3 h-3 -ml-1" />
+                  </span>
                 </Link>
               </li>
             );

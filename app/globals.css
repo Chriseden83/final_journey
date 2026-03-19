@@ -171,8 +171,11 @@ h6 {
 
 /* Mobile Hamburger */
 .hamburger-wrapper {
-  @apply lg:hidden relative;
+  @apply lg:hidden;
   z-index: 60;
+  position: fixed;
+  top: 1.5rem;
+  right: 0.5rem;
 }
 
 /* Hamburger icon colors via CSS */
@@ -222,7 +225,6 @@ h6 {
 /* Mobile Menu Header */
 .mobile-menu-header {
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .mobile-menu-brand {
@@ -266,12 +268,44 @@ h6 {
 }
 
 .mobile-nav-link {
-  @apply block py-4 text-lg transition-all tracking-wide;
+  @apply flex items-center py-4 text-lg transition-all tracking-wide;
   padding-left: 2rem;
   padding-right: 2rem;
   color: var(--navy);
   border-left: 3px solid transparent;
   position: relative;
+  gap: 1rem;
+}
+
+.mobile-nav-link-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+}
+
+.mobile-nav-link-text {
+  flex: 1;
+}
+
+.mobile-nav-link-arrows {
+  display: flex;
+  align-items: center;
+  color: var(--gray-muted);
+  opacity: 0;
+  transform: translateX(-5px);
+  transition: all 0.2s ease;
+}
+
+.mobile-nav-link:hover .mobile-nav-link-arrows {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.mobile-nav-link-active .mobile-nav-link-arrows {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--accent-gold);
 }
 
 .mobile-nav-link:hover {
@@ -290,7 +324,6 @@ h6 {
 /* Mobile Menu Footer */
 .mobile-menu-footer {
   padding: 1.5rem 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
   opacity: 0;
   transform: translateY(15px);
   transition:
@@ -312,7 +345,7 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--navy);
+  color: var(--accent-gold);
   transition: all 0.2s ease;
 }
 
