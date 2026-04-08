@@ -109,7 +109,7 @@ export default function ContactPage() {
         <div className="contact-hero-content">
           <h1 className="contact-hero-title">Contact Us</h1>
           <p className="contact-hero-subtitle">
-            We&apos;re here to help, 24 hours a day, 7 days a week
+            We&apos;re here to help when you need us
           </p>
         </div>
       </section>
@@ -126,11 +126,18 @@ export default function ContactPage() {
                 soon as possible.
               </p>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="contact-form"
+                noValidate
+              >
                 {/* Name Field */}
                 <div className="form-group">
                   <label htmlFor="name" className="form-label">
-                    Full Name <span className="required">*</span>
+                    Full Name{' '}
+                    <span className="required" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <input
                     type="text"
@@ -138,16 +145,24 @@ export default function ContactPage() {
                     {...register('name')}
                     className={`form-input ${errors.name ? 'form-input-error' : ''}`}
                     placeholder="Enter your full name"
+                    aria-required="true"
+                    aria-invalid={errors.name ? 'true' : 'false'}
+                    aria-describedby={errors.name ? 'name-error' : undefined}
                   />
                   {errors.name && (
-                    <span className="form-error">{errors.name.message}</span>
+                    <span id="name-error" className="form-error" role="alert">
+                      {errors.name.message}
+                    </span>
                   )}
                 </div>
 
                 {/* Email Field */}
                 <div className="form-group">
                   <label htmlFor="email" className="form-label">
-                    Email Address <span className="required">*</span>
+                    Email Address{' '}
+                    <span className="required" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <input
                     type="email"
@@ -155,16 +170,24 @@ export default function ContactPage() {
                     {...register('email')}
                     className={`form-input ${errors.email ? 'form-input-error' : ''}`}
                     placeholder="Enter your email address"
+                    aria-required="true"
+                    aria-invalid={errors.email ? 'true' : 'false'}
+                    aria-describedby={errors.email ? 'email-error' : undefined}
                   />
                   {errors.email && (
-                    <span className="form-error">{errors.email.message}</span>
+                    <span id="email-error" className="form-error" role="alert">
+                      {errors.email.message}
+                    </span>
                   )}
                 </div>
 
                 {/* Phone Field */}
                 <div className="form-group">
                   <label htmlFor="phone" className="form-label">
-                    Phone Number <span className="required">*</span>
+                    Phone Number{' '}
+                    <span className="required" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <input
                     type="tel"
@@ -172,18 +195,30 @@ export default function ContactPage() {
                     {...register('phone')}
                     className={`form-input ${errors.phone ? 'form-input-error' : ''}`}
                     placeholder="Enter your phone number"
+                    aria-required="true"
+                    aria-invalid={errors.phone ? 'true' : 'false'}
+                    aria-describedby={errors.phone ? 'phone-error' : undefined}
                   />
                   {errors.phone && (
-                    <span className="form-error">{errors.phone.message}</span>
+                    <span id="phone-error" className="form-error" role="alert">
+                      {errors.phone.message}
+                    </span>
                   )}
                 </div>
 
                 {/* Funeral Type Options */}
-                <div className="form-group">
-                  <label className="form-label">
-                    Type of Service <span className="required">*</span>
-                  </label>
-                  <div className="form-options">
+                <fieldset className="form-group form-fieldset">
+                  <legend className="form-label">
+                    Type of Service{' '}
+                    <span className="required" aria-hidden="true">
+                      *
+                    </span>
+                  </legend>
+                  <div
+                    className="form-options"
+                    role="radiogroup"
+                    aria-required="true"
+                  >
                     {funeralTypeOptions.map((option) => (
                       <label key={option.value} className="form-option">
                         <input
@@ -199,16 +234,23 @@ export default function ContactPage() {
                     ))}
                   </div>
                   {errors.funeralType && (
-                    <span className="form-error">
+                    <span
+                      id="funeralType-error"
+                      className="form-error"
+                      role="alert"
+                    >
                       {errors.funeralType.message}
                     </span>
                   )}
-                </div>
+                </fieldset>
 
                 {/* Message Field */}
                 <div className="form-group">
                   <label htmlFor="message" className="form-label">
-                    Your Message <span className="required">*</span>
+                    Your Message{' '}
+                    <span className="required" aria-hidden="true">
+                      *
+                    </span>
                   </label>
                   <textarea
                     id="message"
@@ -216,9 +258,20 @@ export default function ContactPage() {
                     className={`form-textarea ${errors.message ? 'form-input-error' : ''}`}
                     rows={5}
                     placeholder="Please tell us how we can help you..."
+                    aria-required="true"
+                    aria-invalid={errors.message ? 'true' : 'false'}
+                    aria-describedby={
+                      errors.message ? 'message-error' : undefined
+                    }
                   />
                   {errors.message && (
-                    <span className="form-error">{errors.message.message}</span>
+                    <span
+                      id="message-error"
+                      className="form-error"
+                      role="alert"
+                    >
+                      {errors.message.message}
+                    </span>
                   )}
                 </div>
 
@@ -227,26 +280,29 @@ export default function ContactPage() {
                   type="submit"
                   disabled={isSubmitting}
                   className="btn-primary form-submit"
+                  aria-busy={isSubmitting}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
 
                 {/* Status Messages */}
-                {submitStatus === 'success' && (
-                  <div className="form-success">
-                    <p>
-                      Thank you for your message. We will be in touch shortly.
-                    </p>
-                  </div>
-                )}
-                {submitStatus === 'error' && (
-                  <div className="form-error-message">
-                    <p>
-                      Something went wrong. Please try again or call us
-                      directly.
-                    </p>
-                  </div>
-                )}
+                <div aria-live="polite" aria-atomic="true">
+                  {submitStatus === 'success' && (
+                    <div className="form-success" role="status">
+                      <p>
+                        Thank you for your message. We will be in touch shortly.
+                      </p>
+                    </div>
+                  )}
+                  {submitStatus === 'error' && (
+                    <div className="form-error-message" role="alert">
+                      <p>
+                        Something went wrong. Please try again or call us
+                        directly.
+                      </p>
+                    </div>
+                  )}
+                </div>
               </form>
             </div>
 

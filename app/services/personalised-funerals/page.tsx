@@ -2,9 +2,17 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Personalised Funerals | Final Journey Funerals',
+  title:
+    'Personalised Funerals Carlisle | Bespoke Services | Final Journey Funerals',
   description:
-    'Create a meaningful tribute that truly reflects your loved one. Our personalised funeral services in Dorset help celebrate a life lived with dignity and care.',
+    "Create a meaningful, personalised funeral service in Carlisle that truly celebrates your loved one's life. Bespoke funerals tailored to your wishes. Serving families across Cumbria including Penrith, Keswick, and Wigton.",
+  keywords: [
+    'personalised funeral Carlisle',
+    'bespoke funeral Cumbria',
+    'unique funeral service',
+    'celebration of life Carlisle',
+    'funeral directors Cumbria',
+  ],
 };
 
 export default function PersonalisedFuneralsPage() {

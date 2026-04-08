@@ -2,9 +2,17 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Transport Options | Final Journey Funerals',
+  title:
+    'Funeral Transport Options | Carlisle & Cumbria | Final Journey Funerals',
   description:
-    'Dignified transport services for funerals in Dorset. From traditional hearses to alternative options, we ensure your loved one travels with care and respect.',
+    'Dignified funeral transport services in Carlisle and across Cumbria. Traditional hearses and alternative options available. We ensure your loved one travels with care and respect.',
+  keywords: [
+    'funeral transport Carlisle',
+    'hearse hire Cumbria',
+    'funeral cars',
+    'alternative funeral transport',
+    'dignified transport',
+  ],
 };
 
 export default function TransportOptionsPage() {

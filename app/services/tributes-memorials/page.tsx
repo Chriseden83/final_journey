@@ -2,9 +2,16 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Tributes & Memorials | Final Journey Funerals',
+  title: 'Tributes & Memorials | Carlisle & Cumbria | Final Journey Funerals',
   description:
-    'Create lasting tributes and memorials for your loved ones. From online memorial pages to physical keepsakes, we help preserve precious memories.',
+    'Create lasting tributes and memorials for your loved ones in Carlisle and Cumbria. Online memorial pages, MuchLoved tributes, and physical keepsakes to preserve precious memories.',
+  keywords: [
+    'funeral tributes Carlisle',
+    'memorial pages Cumbria',
+    'online obituary',
+    'MuchLoved tributes',
+    'remembrance keepsakes',
+  ],
 };
 
 export default function TributesMemorialsPage() {

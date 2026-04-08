@@ -2,7 +2,15 @@ export interface NavLink {
   href: string;
   label: string;
   sectionId?: string; // For smooth scrolling on home page
-  icon: 'home' | 'about' | 'services' | 'tributes' | 'prices' | 'contact';
+  icon:
+    | 'home'
+    | 'about'
+    | 'services'
+    | 'tributes'
+    | 'prices'
+    | 'contact'
+    | 'guide'
+    | 'grief';
 }
 
 export const navLinks: NavLink[] = [
@@ -15,14 +23,28 @@ export const navLinks: NavLink[] = [
     icon: 'services',
   },
   {
+    href: '/#guide',
+    label: 'What to Do?',
+    sectionId: 'guide',
+    icon: 'guide',
+  },
+  {
+    href: '/grief-chat',
+    label: 'Grief Chat',
+    icon: 'grief',
+  },
+  {
     href: '/tributes',
     label: 'Tributes',
-    sectionId: 'tributes',
     icon: 'tributes',
   },
-  { href: '/#prices', label: 'Prices', sectionId: 'prices', icon: 'prices' },
   {
-    href: '/#contact',
+    href: '/funeral-costs',
+    label: 'Prices',
+    icon: 'prices',
+  },
+  {
+    href: '/contact',
     label: 'Contact',
     sectionId: 'contact',
     icon: 'contact',

@@ -1,9 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import HomeTributesWidget from '@/components/HomeTributesWidget';
-
-// Static data for tributes - server component, no client state needed
-// Now using MuchLoved widget for dynamic tributes
+import ScrollToHash from '@/components/ScrollToHash';
 
 // Static data for services
 const services = [
@@ -17,7 +14,7 @@ const services = [
   {
     title: 'Direct Cremations',
     description:
-      'Simple, lower-cost cremation without a service from £1,595, allowing families to plan a separate memorial or celebration later.',
+      'Simple, lower-cost cremation without a service from £1,695, allowing families to plan a separate memorial or celebration later.',
     icon: '/icons/ashes.svg',
     href: '/services/direct-cremations',
   },
@@ -85,6 +82,7 @@ const galleryImages = [
 export default function Home() {
   return (
     <>
+      <ScrollToHash />
       {/* Hero Section */}
       <section id="hero" className="section-hero" aria-label="Welcome">
         <div className="hero-content">
@@ -134,10 +132,9 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center mt-12">
             <div>
               <p className="section-text" style={{ maxWidth: '100%' }}>
-                Our team is available 24 hours a day, 7 days a week, offering
-                guidance and support when you need it most. We believe in
-                transparent pricing, personalised care, and treating every
-                family with the respect they deserve.
+                Our dedicated team offers guidance and support when you need it
+                most. We believe in transparent pricing, personalised care, and
+                treating every family with the respect they deserve.
               </p>
               <p className="section-text" style={{ maxWidth: '100%' }}>
                 From the moment you reach out to us, we handle every detail with
@@ -198,36 +195,72 @@ export default function Home() {
                 </div>
                 <h3 className="service-title">{service.title}</h3>
                 <p className="service-description">{service.description}</p>
+                <span className="service-arrow">Learn More →</span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Tributes Section */}
-      <section
-        id="tributes"
-        className="section"
-        aria-labelledby="tributes-heading"
-      >
+      {/* What to Do Guide Section */}
+      <section id="guide" className="section" aria-labelledby="guide-heading">
         <div className="section-container">
-          <h2 id="tributes-heading" className="section-heading">
-            Honouring Their Memories
+          <h2 id="guide-heading" className="section-heading">
+            What to Do When Someone Dies
           </h2>
           <p className="section-subheading">
-            We are privileged to help families celebrate the lives of their
-            loved ones. Here are some of those we have been honoured to serve.
+            Losing someone is overwhelming. Our helpful guide walks you through
+            each step, from the first phone call to organising the funeral.
           </p>
-          <div className="tributes-grid">
-            <HomeTributesWidget maxItems={3} />
+          <div className="guide-teaser">
+            <div className="guide-teaser-image">
+              <Image
+                src="/images/support.webp"
+                alt="Compassionate support during difficult times"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="guide-teaser-steps">
+              <div className="guide-step">
+                <span className="guide-step-number">1</span>
+                <div>
+                  <h3>Obtain a Medical Certificate</h3>
+                  <p>
+                    Contact the doctor to confirm death and receive the
+                    necessary paperwork
+                  </p>
+                </div>
+              </div>
+              <div className="guide-step">
+                <span className="guide-step-number">2</span>
+                <div>
+                  <h3>Register the Death</h3>
+                  <p>
+                    Visit the registrar within 5 days with the medical
+                    certificate
+                  </p>
+                </div>
+              </div>
+              <div className="guide-step">
+                <span className="guide-step-number">3</span>
+                <div>
+                  <h3>Plan the Funeral</h3>
+                  <p>
+                    We&apos;ll guide you through every option to create a
+                    meaningful farewell
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="section-cta pt-6">
+          <div className="section-cta">
             <Link
-              href="/tributes"
-              className="btn-secondary"
-              aria-label="View all tributes"
+              href="/what-to-do-when-someone-dies"
+              className="btn-primary"
+              aria-label="Read our complete guide"
             >
-              View All Tributes
+              Read the Full Guide
             </Link>
           </div>
         </div>
@@ -290,39 +323,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Prices Section */}
-      <section
-        id="prices"
-        className="section section-alt"
-        aria-labelledby="prices-heading"
-      >
-        <div className="section-container">
-          <h2 id="prices-heading" className="section-heading">
-            Transparent Pricing
-          </h2>
-          <p className="section-subheading">
-            We believe in clear, honest pricing with no hidden costs. Our
-            services are designed to offer value, dignity, and peace of mind.
-          </p>
-          <div className="prices-highlight">
-            <p className="price-feature">Direct Cremations from</p>
-            <p className="price-amount">£1,595</p>
-            <p className="price-note">
-              Including collection, cremation, and return of ashes
-            </p>
-          </div>
-          <div className="section-cta">
-            <Link
-              href="/prices"
-              className="btn-primary"
-              aria-label="View all our pricing"
-            >
-              View All Pricing
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Contact CTA Banner */}
       <section
         id="contact"
@@ -334,8 +334,8 @@ export default function Home() {
             Ready to Plan a Meaningful Farewell?
           </h2>
           <p className="cta-banner-text">
-            Our compassionate team is here to support you 24 hours a day, 7 days
-            a week. We&apos;re only a phone call away.
+            Our compassionate team is here to support you with dedicated,
+            personal care. We&apos;re only a phone call away.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link

@@ -2,9 +2,17 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Support & Guidance | Final Journey Funerals',
+  title:
+    'Bereavement Support Carlisle | Guidance & Care | Final Journey Funerals',
   description:
-    "Compassionate support and guidance through bereavement in Dorset. We're here to help with practical matters and emotional support during difficult times.",
+    "Compassionate bereavement support and guidance in Carlisle and Cumbria. We're here to help with practical matters and emotional support during difficult times. Free grief chat available.",
+  keywords: [
+    'bereavement support Carlisle',
+    'grief support Cumbria',
+    'funeral guidance',
+    'what to do when someone dies',
+    'bereavement help Carlisle',
+  ],
 };
 
 export default function SupportPage() {

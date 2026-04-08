@@ -2,9 +2,16 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Direct Cremations | Final Journey Funerals',
+  title: 'Direct Cremations Carlisle | From £1,695 | Final Journey Funerals',
   description:
-    'Simple, dignified direct cremation services in Dorset. An affordable option without a traditional funeral service, allowing families to commemorate in their own way.',
+    'Affordable direct cremation services in Carlisle and Cumbria from £1,695. Simple, dignified cremation without a funeral service. Transparent pricing, no hidden fees. Serving Penrith, Keswick, Wigton and all of Cumbria.',
+  keywords: [
+    'direct cremation Carlisle',
+    'affordable cremation Cumbria',
+    'simple cremation',
+    'cremation without service',
+    'budget funeral Carlisle',
+  ],
 };
 
 export default function DirectCremationsPage() {

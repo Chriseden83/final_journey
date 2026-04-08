@@ -2,9 +2,16 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Tissue Donation | Final Journey Funerals',
+  title:
+    'Tissue Donation Support | Carlisle & Cumbria | Final Journey Funerals',
   description:
-    'Supporting tissue donation in Dorset. We guide families through the donation process with compassion, helping your loved one give the gift of life.',
+    'Supporting tissue donation in Carlisle and Cumbria. We guide families through the donation process with compassion, helping your loved one give the gift of life. Experienced funeral directors.',
+  keywords: [
+    'tissue donation Carlisle',
+    'organ donation funeral',
+    'donation after death Cumbria',
+    'gift of life funeral',
+  ],
 };
 
 export default function TissueDonationPage() {
