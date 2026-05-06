@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import emailjs from '@emailjs/browser';
+import { Heart } from 'lucide-react';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import {
   FadeInUp,
@@ -114,9 +115,15 @@ export default function ContactPage() {
         <div className="contact-hero-overlay" />
         <div className="contact-hero-content">
           <HeroText delay={0.2}>
+            <Heart className="page-hero-heart-icon" aria-hidden="true" />
+          </HeroText>
+          <HeroText delay={0.3}>
             <h1 className="contact-hero-title">Contact Us</h1>
           </HeroText>
           <HeroText delay={0.4}>
+            <div className="page-hero-underline" aria-hidden="true" />
+          </HeroText>
+          <HeroText delay={0.5}>
             <p className="contact-hero-subtitle">
               We&apos;re here to help when you need us
             </p>

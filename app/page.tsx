@@ -98,24 +98,27 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="section-hero" aria-label="Welcome">
         <div className="hero-content">
-          <HeroText delay={0.2}>
+          <HeroText delay={0.3}>
             <h1 className="hero-title">
               Compassionate Care, Every Step of the Way
             </h1>
           </HeroText>
           <HeroText delay={0.4}>
+            <div className="page-hero-underline" aria-hidden="true" />
+          </HeroText>
+          <HeroText delay={0.5}>
             <p className="hero-subtitle">
               Final Journey Funeral Directors, Carlisle
             </p>
           </HeroText>
-          <HeroText delay={0.6}>
+          <HeroText delay={0.7}>
             <p className="hero-description">
               Professional and respectful, with heartfelt care and discretion
               throughout. We guide every detail from first collection to a
               meaningful farewell, tailored to you.
             </p>
           </HeroText>
-          <HeroText delay={0.8}>
+          <HeroText delay={0.9}>
             <div className="hero-buttons">
               <Link
                 href="/contact"
@@ -146,7 +149,7 @@ export default function Home() {
             </h2>
             <p className="section-subheading">
               Final Journey is a professional funeral director based in
-              Carlisle, dedicated to providing compassionate care and dignified
+              Carlisle, dedicated to providing compassionate care and respectful
               services. We work closely with families to create meaningful
               tributes that honour their loved ones.
             </p>
@@ -324,7 +327,7 @@ export default function Home() {
               Gallery
             </h2>
             <p className="section-subheading">
-              Moments of dignity, care, and remembrance. Every service reflects
+              Moments of care, respect, and remembrance. Every service reflects
               our commitment to honoring your loved ones.
             </p>
           </FadeInUp>

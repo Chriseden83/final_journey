@@ -78,9 +78,15 @@ export default function AnimatedWhatToDoContent() {
       <section className="guide-hero">
         <div className="guide-hero-content">
           <HeroText delay={0.2}>
+            <Heart className="page-hero-heart-icon" aria-hidden="true" />
+          </HeroText>
+          <HeroText delay={0.3}>
             <h1 className="guide-hero-title">What to Do When Someone Dies</h1>
           </HeroText>
           <HeroText delay={0.4}>
+            <div className="page-hero-underline" aria-hidden="true" />
+          </HeroText>
+          <HeroText delay={0.5}>
             <p className="guide-hero-subtitle">
               A gentle guide to help you through the practical steps during a
               difficult time. We&apos;re here to support you every step of the

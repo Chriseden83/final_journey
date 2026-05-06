@@ -16,12 +16,15 @@ export default function AnimatedGriefChatContent() {
         <section className="guide-hero">
           <div className="guide-hero-content">
             <HeroText delay={0.2}>
-              <Heart className="w-16 h-16 mx-auto mb-6 text-[#c9a962]" />
+              <Heart className="page-hero-heart-icon" aria-hidden="true" />
             </HeroText>
             <HeroText delay={0.3}>
               <h1 className="guide-hero-title">Grief Chat</h1>
             </HeroText>
             <HeroText delay={0.4}>
+              <div className="page-hero-underline" aria-hidden="true" />
+            </HeroText>
+            <HeroText delay={0.5}>
               <p className="guide-hero-subtitle">
                 Free, confidential support from trained bereavement counsellors
               </p>

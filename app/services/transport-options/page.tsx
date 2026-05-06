@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   title:
     'Funeral Transport Options | Carlisle & Cumbria | Final Journey Funerals',
   description:
-    'Dignified funeral transport services in Carlisle and across Cumbria. Traditional hearses and alternative options available. We ensure your loved one travels with care and respect.',
+    'Respectful funeral transport services in Carlisle and across Cumbria. Traditional hearses and alternative options available. We ensure your loved one travels with care and respect.',
   keywords: [
     'funeral transport Carlisle',
     'hearse hire Cumbria',
     'funeral cars',
     'alternative funeral transport',
-    'dignified transport',
+    'respectful transport',
   ],
 };
 
@@ -22,7 +22,7 @@ export default function TransportOptionsPage() {
       imageAlt="Funeral transport options"
       titleLine1="Transport"
       titleLine2="Options"
-      subtitle="Travel With Dignity"
+      subtitle="Travel With Care & Respect"
       description={
         <>
           <p>
@@ -32,8 +32,8 @@ export default function TransportOptionsPage() {
           </p>
           <p>
             Whether you prefer a traditional hearse or something more unique
-            that reflects your loved one&apos;s personality, we can help
-            arrange the perfect transport for this significant journey.
+            that reflects your loved one&apos;s personality, we can help arrange
+            the perfect transport for this significant journey.
           </p>
         </>
       }

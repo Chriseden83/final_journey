@@ -92,6 +92,31 @@ body {
   grid-template-areas: 'main' 'footer';
 }
 
+.page-hero-heart-icon {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 auto 1rem;
+  color: var(--accent-gold);
+}
+
+.page-hero-heart-icon-left {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.page-hero-underline {
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-gold);
+  margin: 1.25rem auto 0;
+  border-radius: 999px;
+}
+
+.page-hero-underline-left {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 h1,
 h2,
 h3,
@@ -689,7 +714,7 @@ button:focus:not(:focus-visible) {
 .service-hero-underline {
   width: 80px;
   height: 3px;
-  background-color: var(--navy-dark) !important;
+  background-color: #3d2f26 !important;
   margin-bottom: 2rem;
 }
 
@@ -1804,40 +1829,47 @@ span.ml-funeral-location {
 }
 
 .tributes-hero {
-  background-color: var(--navy);
-  color: var(--white);
-  padding: 80px 20px 60px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
+  @apply relative flex items-center justify-center px-4 text-center overflow-hidden;
+  padding: 100px 20px 80px;
+  background: linear-gradient(
+    to bottom,
+    rgba(74, 74, 71, 0.85) 0%,
+    rgba(74, 74, 71, 0.75) 100%
+  );
+}
+
+.tributes-hero::before {
+  content: '';
+  @apply absolute inset-0 -z-10;
+  background-image: url('/images/casket3.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.tributes-hero-overlay {
+  @apply absolute inset-0;
+  background: rgba(74, 74, 71, 0.68);
+  z-index: 1;
 }
 
 .tributes-hero-content {
-  max-width: 800px;
-  width: 100%;
+  @apply relative z-10;
+  max-width: 860px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
-.tributes-hero h1 {
-  font-family: var(--font-playfair), serif;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: var(--accent-gold);
-  text-align: center !important;
-  width: 100%;
+.tributes-hero-title {
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-4;
+  color: var(--white);
+  font-family: var(--font-playfair), Georgia, serif;
 }
 
-.tributes-hero p {
-  font-size: 1.125rem;
-  color: var(--gray-warm);
-  max-width: 600px;
+.tributes-hero-subtitle {
+  @apply text-base sm:text-lg;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 860px;
+  line-height: 1.55;
   margin: 0 auto;
-  line-height: 1.7;
-  text-align: center !important;
 }
 
 .tributes-content {
@@ -2382,7 +2414,7 @@ span.ml-funeral-location {
 /* Contact Hero */
 .contact-hero {
   @apply relative flex items-center justify-center px-4 text-center overflow-hidden;
-  min-height: 40vh;
+  padding: 100px 20px 80px;
   background: linear-gradient(
     to bottom,
     rgba(74, 74, 71, 0.85) 0%,
@@ -2406,17 +2438,21 @@ span.ml-funeral-location {
 
 .contact-hero-content {
   @apply relative z-10;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .contact-hero-title {
-  @apply text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight;
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-4;
   color: var(--white);
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  font-family: var(--font-playfair), Georgia, serif;
 }
 
 .contact-hero-subtitle {
-  @apply text-lg sm:text-xl max-w-2xl mx-auto;
-  color: rgba(255, 255, 255, 0.9);
+  @apply text-lg sm:text-xl;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Contact Grid Layout */
@@ -2666,8 +2702,8 @@ span.ml-funeral-location {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .contact-hero {
-    min-height: 30vh;
+  .tributes-hero-title {
+    @apply text-3xl;
   }
 
   .contact-hero-title {
@@ -2707,31 +2743,19 @@ span.ml-funeral-location {
 .costs-hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
 .costs-hero-title {
-  font-family: var(--font-playfair), Georgia, serif;
-  font-size: 3.5rem;
-  font-weight: 600;
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-4;
   color: var(--white);
-  margin-bottom: 1.5rem;
-}
-
-.costs-hero-title::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 3px;
-  background-color: var(--accent-gold);
-  margin: 1.5rem auto 0;
+  font-family: var(--font-playfair), Georgia, serif;
 }
 
 .costs-hero-subtitle {
-  font-size: 1.25rem;
+  @apply text-lg sm:text-xl;
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.8;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -2816,9 +2840,11 @@ span.ml-funeral-location {
 
 .packages-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
   align-items: stretch;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .packages-grid > * {
@@ -3477,7 +3503,7 @@ span.ml-funeral-location {
 .guide-hero-content {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
@@ -3985,7 +4011,7 @@ span.ml-funeral-location {
 
 /* About Hero */
 .about-hero {
-  @apply relative min-h-[60vh] flex items-center justify-center;
+  @apply relative flex items-center justify-center;
   background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
   overflow: hidden;
 }

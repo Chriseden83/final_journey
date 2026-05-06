@@ -64,7 +64,7 @@ export function generateLocalBusinessSchema() {
             '@type': 'Service',
             name: 'Direct Cremation',
             description:
-              'Simple, dignified cremation without a funeral service, allowing families to hold their own memorial.',
+              'Simple, respectful cremation without a funeral service, allowing families to hold their own memorial.',
           },
           price: '1595',
           priceCurrency: 'GBP',

@@ -4,7 +4,7 @@ import { AnimatedServiceHero } from '@/components/AnimatedServiceHero';
 export const metadata: Metadata = {
   title: 'Direct Cremations Carlisle | From £1,695 | Final Journey Funerals',
   description:
-    'Affordable direct cremation services in Carlisle and Cumbria from £1,695. Simple, dignified cremation without a funeral service. Transparent pricing, no hidden fees. Serving Penrith, Keswick, Wigton and all of Cumbria.',
+    'Affordable direct cremation services in Carlisle and Cumbria from £1,695. Simple, respectful cremation without a funeral service. Transparent pricing, no hidden fees. Serving Penrith, Keswick, Wigton and all of Cumbria.',
   keywords: [
     'direct cremation Carlisle',
     'affordable cremation Cumbria',
@@ -25,15 +25,15 @@ export default function DirectCremationsPage() {
       description={
         <>
           <p>
-            A direct cremation offers a straightforward and dignified option
+            A direct cremation offers a straightforward and respectful option
             for those who prefer simplicity. Without a traditional funeral
-            service, this choice gives families the freedom to commemorate
-            their loved one in their own time and way.
+            service, this choice gives families the freedom to commemorate their
+            loved one in their own time and way.
           </p>
           <p>
-            Many families choose to hold a celebration of life at a later
-            date, scatter ashes at a meaningful location, or create a
-            private memorial. The choice is entirely yours.
+            Many families choose to hold a celebration of life at a later date,
+            scatter ashes at a meaningful location, or create a private
+            memorial. The choice is entirely yours.
           </p>
         </>
       }

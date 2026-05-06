@@ -20,7 +20,6 @@ export function AnimatedServiceHero({
   imageAlt,
   titleLine1,
   titleLine2,
-  subtitle,
   description,
   listTitle,
   listItems,
@@ -55,9 +54,6 @@ export function AnimatedServiceHero({
           </div>
           <div className="service-hero-right">
             <div className="service-hero-right-content">
-              <FadeInUp delay={0.3}>
-                <h2>{subtitle}</h2>
-              </FadeInUp>
               <FadeInUp delay={0.4}>
                 <div>{description}</div>
               </FadeInUp>

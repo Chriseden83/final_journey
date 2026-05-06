@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { Heart } from 'lucide-react';
 import {
   FadeIn,
   FadeInUp,
@@ -114,7 +115,7 @@ const differentiators = [
     stat: '£1,695',
     label: 'Direct Cremation',
     description:
-      'Affordable options without compromising on dignity or quality of care.',
+      'Affordable options without compromising on respect or quality of care.',
   },
   {
     stat: '5★',
@@ -162,19 +163,25 @@ export default function AnimatedAboutContent() {
         <div className="about-hero-overlay" />
         <div className="about-hero-content">
           <HeroText delay={0.2}>
+            <Heart className="page-hero-heart-icon" aria-hidden="true" />
+          </HeroText>
+          <HeroText delay={0.3}>
             <span className="about-hero-label">
               Independent Funeral Directors · Carlisle
             </span>
           </HeroText>
-          <HeroText delay={0.4}>
+          <HeroText delay={0.5}>
             <h1 className="about-hero-title">
               A Different Kind of Funeral Director
             </h1>
           </HeroText>
           <HeroText delay={0.6}>
+            <div className="page-hero-underline" aria-hidden="true" />
+          </HeroText>
+          <HeroText delay={0.7}>
             <p className="about-hero-subtitle">
               Where every family is treated as we would want our own to be
-              treated—with dignity, respect, and genuine compassion.
+              treated with respect, care, and genuine compassion.
             </p>
           </HeroText>
         </div>

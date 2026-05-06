@@ -6,7 +6,6 @@ import {
   Check,
   Heart,
   Sparkles,
-  Crown,
   ChevronRight,
   Info,
   Clock,
@@ -25,7 +24,7 @@ const packages = [
   {
     id: 'direct',
     name: 'Direct Cremation',
-    tagline: 'Simple & Dignified',
+    tagline: 'Simple & Respectful',
     price: 1695,
     description:
       'A practical and lower-cost option which separates the cremation process from the funeral ceremony. Perfect for families who wish to arrange their own celebration of life.',
@@ -45,9 +44,9 @@ const packages = [
   },
   {
     id: 'attended',
-    name: 'Attended Funeral',
+    name: 'Simple Cremation with Service',
     tagline: 'A Meaningful Goodbye',
-    price: 1900,
+    price: 1995,
     description:
       'A funeral where family and friends have a ceremony, event or service for the deceased person at the same time as they attend the burial or cremation.',
     icon: Sparkles,
@@ -61,26 +60,6 @@ const packages = [
       'Professional funeral director attendance',
     ],
     highlight: true,
-  },
-  {
-    id: 'unattended',
-    name: 'Unattended Funeral',
-    tagline: 'Flexible Option',
-    price: 895,
-    cremationPrice: 1895,
-    description:
-      'A funeral where family and friends may choose to have a ceremony, event or service for the deceased person, but do not attend the burial or cremation itself.',
-    icon: Crown,
-    features: [
-      "Burial option: £895 (funeral director's charges only)",
-      'Cremation option: £1,895 (includes cremation fee)',
-      'All necessary legal and administrative arrangements',
-      'Collection and care of your loved one',
-      'Simple dignified coffin',
-      'Freedom to hold your own ceremony separately',
-      'Flexible timing for your memorial service',
-    ],
-    highlight: false,
   },
 ];
 
@@ -458,16 +437,11 @@ const priceCategories = [
         description: 'Typical cost in this local area',
       },
       {
-        name: 'Existing grave with memorial in place',
-        price: '£400',
+        name: 'Existing grave and removal / replacement fees',
+        price: '£400 - £1,550',
         included: [],
-        description: 'For a new grave, you will also need to pay for the plot',
-      },
-      {
-        name: 'Removal / replacement fee',
-        price: '£1,550',
-        included: [],
-        description: 'Additional cemetery charge where applicable',
+        description:
+          'Range for existing grave use and memorial removal/replacement where applicable',
       },
       {
         name: 'Cremation fee (local residents)',
@@ -570,7 +544,7 @@ const uspFeatures = [
   },
   {
     icon: Heart,
-    title: 'Dignity Promise',
+    title: 'Respect Promise',
     description: 'Your loved one treated with utmost respect always',
   },
 ];
@@ -590,9 +564,15 @@ export default function FuneralCostsPage() {
       <section className="costs-hero">
         <div className="costs-hero-content">
           <HeroText delay={0.2}>
+            <Heart className="page-hero-heart-icon" aria-hidden="true" />
+          </HeroText>
+          <HeroText delay={0.3}>
             <h1 className="costs-hero-title">Funeral Costs</h1>
           </HeroText>
           <HeroText delay={0.4}>
+            <div className="page-hero-underline" aria-hidden="true" />
+          </HeroText>
+          <HeroText delay={0.5}>
             <p className="costs-hero-subtitle">
               Transparent, honest pricing with no hidden fees. We believe every
               family deserves to know exactly what they&apos;re paying for.
@@ -624,7 +604,7 @@ export default function FuneralCostsPage() {
           <FadeInUp>
             <h2 className="packages-heading">Choose Your Package</h2>
             <p className="packages-subheading">
-              Three carefully designed options to suit different needs and
+              Two carefully designed options to suit different needs and
               budgets. Each package can be personalised to create the perfect
               farewell.
             </p>
@@ -673,11 +653,10 @@ export default function FuneralCostsPage() {
           <div className="comparison-content">
             <h3>How We Compare</h3>
             <p>
-              Our prices are typically <strong>30-40% lower</strong> than the UK
-              average. The average cost of a funeral in the UK is now over
-              £4,000. We believe that a dignified farewell shouldn&apos;t come
-              with a financial burden, which is why we offer quality services at
-              fair, transparent prices.
+              Our prices are typically lower than the UK average. We believe
+              that a respectful farewell shouldn&apos;t come with a financial
+              burden, which is why we offer quality services at fair,
+              transparent prices.
             </p>
           </div>
         </FadeInUp>
@@ -734,7 +713,7 @@ export default function FuneralCostsPage() {
                                 pkg === 'direct'
                                   ? 'Direct'
                                   : pkg === 'attended'
-                                    ? 'Attended'
+                                    ? 'Simple Cremation with Service'
                                     : 'Bespoke',
                               )
                               .join(', ')}
