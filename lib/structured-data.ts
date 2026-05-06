@@ -77,7 +77,7 @@ export function generateLocalBusinessSchema() {
             description:
               'Full funeral service with ceremony, allowing family and friends to gather and pay respects.',
           },
-          price: '1695',
+          price: '1900',
           priceCurrency: 'GBP',
         },
         {

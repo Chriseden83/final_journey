@@ -3671,7 +3671,7 @@ span.ml-funeral-location {
 }
 
 .option-card p {
-  @apply text-sm mb-3 flex-grow;
+  @apply text-sm mb-3 grow;
   color: var(--text-secondary);
 }
 
