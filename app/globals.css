@@ -248,7 +248,7 @@ button:focus:not(:focus-visible) {
 }
 
 .hamburger-wrapper.hamburger-open {
-  top: 2.25rem;
+  top: 1.5rem;
 }
 
 /* Hamburger icon colors via CSS */
@@ -2776,8 +2776,11 @@ span.ml-funeral-location {
 
 .usp-item {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  text-align: center;
   color: var(--navy-dark);
 }
 
@@ -4011,31 +4014,36 @@ span.ml-funeral-location {
 
 /* About Hero */
 .about-hero {
-  @apply relative flex items-center justify-center;
-  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+  @apply relative flex items-center justify-center px-4 text-center overflow-hidden;
+  padding: 100px 20px 80px;
   overflow: hidden;
+  isolation: isolate;
 }
 
 .about-hero::before {
   content: '';
-  position: absolute;
-  inset: 0;
-  background: url('/images/casket5.jpg') center/cover no-repeat;
-  opacity: 0.15;
+  @apply absolute inset-0;
+  background-image: url('/images/casket5.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
 }
 
 .about-hero-overlay {
-  position: absolute;
-  inset: 0;
+  @apply absolute inset-0;
   background: linear-gradient(
-    180deg,
-    rgba(26, 31, 46, 0.7) 0%,
-    rgba(26, 31, 46, 0.9) 100%
+    to bottom,
+    rgba(74, 74, 71, 0.78) 0%,
+    rgba(74, 74, 71, 0.68) 100%
   );
+  z-index: 1;
 }
 
 .about-hero-content {
-  @apply relative z-10 text-center px-6 py-20 max-w-4xl mx-auto;
+  @apply relative;
+  max-width: 760px;
+  margin: 0 auto;
+  z-index: 2;
 }
 
 .about-hero-label {
@@ -4045,16 +4053,16 @@ span.ml-funeral-location {
 }
 
 .about-hero-title {
-  @apply text-4xl sm:text-5xl lg:text-6xl font-bold mb-6;
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-4;
   color: var(--white);
   font-family: var(--font-playfair), Georgia, serif;
-  line-height: 1.1;
 }
 
 .about-hero-subtitle {
-  @apply text-lg sm:text-xl max-w-2xl mx-auto;
+  @apply text-lg sm:text-xl;
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* About Container */
