@@ -96,6 +96,12 @@ const Footer = () => {
             © {new Date().getFullYear()} Final Journey Funerals. All rights
             reserved.
           </p>
+          <p className="footer-text">
+            Created by{' '}
+            <a href="mailto:ceden1983@gmail.com" className="footer-link">
+              Chris Eden
+            </a>
+          </p>
         </div>
       </div>
     </footer>

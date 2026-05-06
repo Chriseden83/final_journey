@@ -24,6 +24,8 @@ declare global {
 
 export default function TawkWidget() {
   useEffect(() => {
+    const titleBeforeWidget = document.title;
+
     // Initialize Tawk_API if needed
     window.Tawk_API = window.Tawk_API || {};
     window.Tawk_LoadStart = new Date();
@@ -85,6 +87,27 @@ export default function TawkWidget() {
         window.Tawk_API?.hideWidget?.();
       } catch {
         // Ignore cleanup errors.
+      }
+
+      // Remove the embed script so its title/message listeners do not persist.
+      document.getElementById('tawk-script')?.remove();
+
+      // Remove any Tawk embed frames/widgets that were injected into the page.
+      document
+        .querySelectorAll(
+          'iframe[src*="tawk.to"], iframe[src*="embed.tawk.to"], div[id*="tawk"], div[class*="tawk"]',
+        )
+        .forEach((element) => {
+          element.remove();
+        });
+
+      // Reset globals so the widget can be cleanly re-initialized later.
+      window.Tawk_API = undefined;
+      window.Tawk_LoadStart = undefined;
+
+      // Restore the safe page title if the widget changed it.
+      if (/new message/i.test(document.title)) {
+        document.title = titleBeforeWidget;
       }
     };
   }, []);
