@@ -20,17 +20,19 @@ export default function TitleGuard() {
     document.addEventListener('visibilitychange', enforceTitle);
 
     const titleElement = document.querySelector('title');
-    const observer =
-      titleElement &&
-      new MutationObserver(() => {
-        enforceTitle();
-      });
+    const observer = titleElement
+      ? new MutationObserver(() => {
+          enforceTitle();
+        })
+      : null;
 
-    observer?.observe(titleElement, {
-      childList: true,
-      subtree: true,
-      characterData: true,
-    });
+    if (observer && titleElement) {
+      observer.observe(titleElement, {
+        childList: true,
+        subtree: true,
+        characterData: true,
+      });
+    }
 
     return () => {
       window.clearInterval(intervalId);
