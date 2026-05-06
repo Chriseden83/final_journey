@@ -24,7 +24,7 @@ const Footer = () => {
             </div>
             <p className="footer-text max-w-xs">
               Compassionate funeral services that honour your loved ones with
-              dignity and care.
+              respect and care.
             </p>
           </div>
 
