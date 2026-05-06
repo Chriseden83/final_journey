@@ -3112,6 +3112,10 @@ span.ml-funeral-location {
   letter-spacing: 0.5px;
 }
 
+.price-table-header .price-table-cell:last-child {
+  text-align: right;
+}
+
 .price-table-row {
   display: grid;
   grid-template-columns: 1fr 150px;
