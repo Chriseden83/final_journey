@@ -4,6 +4,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import TitleGuard from '@/components/TitleGuard';
 import { siteConfig } from '@/lib/seo-config';
 import {
   generateLocalBusinessSchema,
@@ -136,6 +137,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${playfair.variable} antialiased`}>
+        <TitleGuard />
         {/* Skip to main content link for keyboard users */}
         <a href="#main-content" className="skip-link">
           Skip to main content

@@ -209,8 +209,13 @@ button:focus:not(:focus-visible) {
   @apply lg:hidden;
   z-index: 60;
   position: fixed;
-  top: 1.25rem;
+  top: 1.8rem;
   right: 1.5rem;
+  transition: top 0.3s ease;
+}
+
+.hamburger-wrapper.hamburger-open {
+  top: 2.25rem;
 }
 
 /* Hamburger icon colors via CSS */
@@ -291,6 +296,7 @@ button:focus:not(:focus-visible) {
   min-height: 72px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .mobile-premium-header-content {
@@ -300,9 +306,25 @@ button:focus:not(:focus-visible) {
 }
 
 .mobile-premium-logo {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
+}
+
+.mobile-premium-close {
+  background: transparent;
+  border: none;
+  color: var(--white);
+  padding: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.mobile-premium-close:hover {
+  color: var(--accent-gold);
 }
 
 .mobile-premium-brand {
@@ -936,6 +958,14 @@ html {
   @apply flex flex-col sm:flex-row gap-4 justify-center items-center;
 }
 
+.hero-buttons .btn-primary,
+.hero-buttons .btn-secondary {
+  width: 200px !important;
+  min-width: 200px !important;
+  max-width: 200px !important;
+  text-align: center;
+}
+
 /* ========================
    General Sections
    ======================== */
@@ -976,7 +1006,7 @@ html {
 }
 
 .section-text {
-  @apply text-lg mb-6 leading-relaxed max-w-3xl mx-auto;
+  @apply text-lg mb-6 leading-relaxed max-w-3xl mx-auto text-center md:text-left;
   color: var(--text-secondary);
 }
 
@@ -1165,12 +1195,12 @@ html {
 }
 
 .tribute-description {
-  @apply leading-relaxed text-sm;
+  @apply leading-relaxed text-sm mb-4;
   color: var(--text-secondary);
 }
 
 .tribute-link {
-  @apply inline-flex items-center gap-2 mt-4 text-sm font-semibold uppercase tracking-wide transition-colors;
+  @apply inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wide transition-colors;
   color: var(--accent-gold);
 }
 
@@ -1239,10 +1269,17 @@ html {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 }
 
+.testimonials-grid > * {
+  height: 100%;
+}
+
 .testimonial-card {
   @apply p-8 rounded-lg relative;
   background-color: var(--cream);
   border-left: 4px solid var(--accent-gold);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonial-card::before {
@@ -1256,11 +1293,13 @@ html {
   @apply text-lg leading-relaxed mb-6 relative z-10;
   color: var(--text-primary);
   font-style: italic;
+  flex: 1;
 }
 
 .testimonial-author {
   @apply font-semibold text-sm uppercase tracking-wide;
   color: var(--accent-gold);
+  margin-top: auto;
 }
 
 /* ========================
@@ -1512,10 +1551,16 @@ h3.ml-name a {
 /* Search Results Card Styling */
 .muchloved-cards .muchloved-funerals-widget-search-results {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   align-items: stretch;
   margin-top: 1.5rem;
+}
+
+@media only screen and (max-width: 640px) {
+  .muchloved-cards .muchloved-funerals-widget-search-results {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Style search result items as cards */
@@ -1531,8 +1576,8 @@ h3.ml-name a {
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-height: 480px;
+  height: 480px;
+  max-height: 480px;
 }
 
 .muchloved-cards .muchloved-funerals-widget-search-results .ml-notice:hover {
@@ -1563,19 +1608,10 @@ h3.ml-name a {
   margin-left: 0;
   padding: 1.5rem;
   padding-bottom: 4rem;
-  flex: 1 1 auto;
+  flex: 1;
   display: block;
   position: relative;
-}
-
-/* Position link at absolute bottom left */
-.muchloved-cards
-  .muchloved-funerals-widget-search-results
-  .ml-details
-  a.ml-link:nth-of-type(2) {
-  position: absolute !important;
-  bottom: 1.5rem !important;
-  left: 1.5rem !important;
+  overflow: hidden;
 }
 
 /* Name styling for search results */
@@ -1592,6 +1628,7 @@ h3.ml-name a {
   text-decoration: none;
   pointer-events: none;
   cursor: default;
+  display: block;
 }
 
 /* Text clamping for search results */
@@ -1602,12 +1639,13 @@ h3.ml-name a {
   .ml-details
   > *:not(h3):not(.ml-link):not(.ml-thumb) {
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  line-height: 1.6;
-  max-height: calc(1.6em * 6);
+  line-height: 1.5;
+  max-height: calc(1.5em * 4);
+  margin-bottom: 2rem;
 }
 
 /* Hide ml-funeral-list-item default margin in search results */
@@ -1618,23 +1656,31 @@ h3.ml-name a {
   margin-left: 0;
 }
 
-/* Hide all links except View Tribute (2nd link) in search results */
+/* Hide all ml-link by default in search results */
 .muchloved-cards .muchloved-funerals-widget-search-results .ml-link {
   display: none !important;
 }
 
+/* Show only the second link (the tribute link, not service details) */
 .muchloved-cards
   .muchloved-funerals-widget-search-results
-  .ml-details
-  a.ml-link:nth-of-type(2) {
+  .ml-link:nth-of-type(2) {
   display: inline-block !important;
-  color: var(--accent-gold) !important;
+  margin-top: 5px;
+  margin-bottom: 0;
+  color: var(--accent-gold);
+  text-decoration: none;
   font-weight: 600;
-  text-transform: uppercase;
   font-size: 0.85rem;
+  text-transform: uppercase;
   letter-spacing: 0.5px;
-  padding: 0 !important;
-  margin: 0 !important;
+}
+
+.muchloved-cards
+  .muchloved-funerals-widget-search-results
+  .ml-link:nth-of-type(2):hover {
+  text-decoration: underline;
+  color: var(--accent-gold-hover);
 }
 
 .muchloved-funerals-search-box {
@@ -1784,10 +1830,16 @@ span.ml-funeral-location {
   width: 100%;
 }
 
-.home-tributes-widget .muchloved-funerals-widget,
+.home-tributes-widget .muchloved-funerals-widget {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
 .muchloved-cards .muchloved-funerals-widget {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   align-items: stretch;
 }
@@ -1800,13 +1852,13 @@ span.ml-funeral-location {
   background-color: var(--white);
   margin-bottom: 0;
   border-radius: 12px;
-  overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-height: 480px;
+  height: 520px;
+  position: relative;
+  overflow: hidden;
 }
 
 .home-tributes-widget .ml-notice:hover,
@@ -1822,6 +1874,7 @@ span.ml-funeral-location {
   height: 280px !important;
   overflow: hidden;
   flex-shrink: 0;
+  border-radius: 12px 12px 0 0;
 }
 
 .home-tributes-widget .ml-thumb img,
@@ -1832,28 +1885,30 @@ span.ml-funeral-location {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   border-radius: 0;
 }
 
 /* Details section styling for cards */
 .home-tributes-widget .ml-details,
-.muchloved-cards .ml-details,
-.tributes-content .ml-details {
+.muchloved-cards .ml-details {
   margin-left: 0;
   padding: 1.5rem;
   padding-bottom: 4rem;
   flex: 1 1 auto;
   display: block;
-  position: relative;
+  background: var(--white);
+  overflow: hidden;
+  max-height: 200px;
+  position: static !important;
 }
 
-/* Position link at absolute bottom left of details section */
-.home-tributes-widget .ml-details a.ml-link:nth-of-type(2),
-.muchloved-cards .ml-details a.ml-link:nth-of-type(2),
-.tributes-content .ml-details a.ml-link:nth-of-type(2) {
-  position: absolute !important;
-  bottom: 1.5rem !important;
-  left: 1.5rem !important;
+/* Position links at bottom of card */
+.home-tributes-widget .ml-notice a.ml-link,
+.muchloved-cards .ml-notice a.ml-link {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
 }
 
 /* Name styling */
@@ -1888,16 +1943,26 @@ span.ml-funeral-location {
   margin-bottom: 0.5rem;
 }
 
-/* Text clamping - limit to 6 lines with ellipsis */
-.home-tributes-widget .ml-notice p,
-.muchloved-cards .ml-notice p,
-.tributes-content .ml-notice p {
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-clamp: 6;
+/* Text clamping - limit text content within details, not the whole card */
+.home-tributes-widget .ml-details > p,
+.muchloved-cards .ml-details > p,
+.tributes-content .ml-details > p {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  line-height: 1.5 !important;
+  max-height: 3em !important;
+  margin: 0 0 0.25rem 0 !important;
+  padding: 0 !important;
+  font-size: 0.875rem !important;
+}
+
+/* Limit total number of p elements shown */
+.home-tributes-widget .ml-details > p:nth-of-type(n + 2),
+.muchloved-cards .ml-details > p:nth-of-type(n + 2) {
+  display: none !important;
 }
 
 .home-tributes-widget span.ml-funeral-location,
@@ -1920,52 +1985,97 @@ span.ml-funeral-location {
   gap: 0.5rem;
 }
 
-/* Hide all links by default */
-.home-tributes-widget .ml-link,
-.muchloved-cards .ml-link,
-.tributes-content .ml-link {
+/* Hide ALL links by default inside cards */
+.home-tributes-widget .ml-notice .ml-link,
+.muchloved-cards .ml-notice .ml-link {
   display: none !important;
 }
 
-/* Show only View Tribute link (second link in the list) */
-.home-tributes-widget .ml-details a.ml-link:nth-of-type(2),
-.muchloved-cards .ml-details a.ml-link:nth-of-type(2),
-.tributes-content .ml-details a.ml-link:nth-of-type(2),
-.home-tributes-widget .ml-notice a.ml-link:nth-of-type(2),
-.muchloved-cards .ml-notice a.ml-link:nth-of-type(2),
-.tributes-content .ml-notice a.ml-link:nth-of-type(2) {
-  display: block !important;
+/* Show ONLY the View Tribute link - exclude Gallery/Order links */
+.home-tributes-widget
+  .ml-notice
+  a.ml-link[target='_blank'][href*='.muchloved.com']:not([href*='Gallery']):not(
+    [href*='Order']
+  ),
+.muchloved-cards
+  .ml-notice
+  a.ml-link[target='_blank'][href*='.muchloved.com']:not([href*='Gallery']):not(
+    [href*='Order']
+  ) {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   position: absolute !important;
-  bottom: 1.5rem !important;
+  bottom: 1rem !important;
   left: 1.5rem !important;
   margin: 0 !important;
   padding: 0 !important;
-  color: var(--accent-gold);
-  font-weight: 600;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  text-align: left;
-  width: auto;
+  background: transparent !important;
+  color: var(--accent-gold) !important;
+  font-weight: 600 !important;
+  font-size: 0 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  text-align: left !important;
+  z-index: 10 !important;
 }
 
-.home-tributes-widget .ml-details a.ml-link:nth-of-type(2):hover,
-.muchloved-cards .ml-details a.ml-link:nth-of-type(2):hover,
-.tributes-content .ml-details a.ml-link:nth-of-type(2):hover {
-  color: var(--accent-gold-hover);
-  text-decoration: none;
+/* Replace link text with VIEW TRIBUTE */
+.home-tributes-widget
+  .ml-notice
+  a.ml-link[target='_blank'][href*='.muchloved.com']:not([href*='Gallery']):not(
+    [href*='Order']
+  )::before,
+.muchloved-cards
+  .ml-notice
+  a.ml-link[target='_blank'][href*='.muchloved.com']:not([href*='Gallery']):not(
+    [href*='Order']
+  )::before {
+  content: 'VIEW TRIBUTE' !important;
+  font-size: 0.875rem !important;
+  color: var(--accent-gold) !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
 }
 
-.home-tributes-widget .ml-link:hover,
-.muchloved-cards .ml-link:hover {
-  color: var(--accent-gold-hover);
-  text-decoration: none;
+.home-tributes-widget
+  .ml-notice
+  a.ml-link[target='_blank'][href*='.muchloved.com']:not([href*='Gallery']):not(
+    [href*='Order']
+  )::after,
+.muchloved-cards
+  .ml-notice
+  a.ml-link[target='_blank'][href*='.muchloved.com']:not([href*='Gallery']):not(
+    [href*='Order']
+  )::after {
+  content: ' →' !important;
+  font-size: 0.875rem !important;
+  color: var(--accent-gold) !important;
 }
 
-.home-tributes-widget .ml-link::after,
-.muchloved-cards .ml-link::after,
-.tributes-content .ml-link::after {
-  content: ' →';
+/* Hover styles for links */
+.home-tributes-widget
+  .ml-notice
+  a.ml-link[target='_blank'][href*='.muchloved.com']:not([href*='Gallery']):not(
+    [href*='Order']
+  ):hover::before,
+.home-tributes-widget
+  .ml-notice
+  a.ml-link[target='_blank'][href*='.muchloved.com']:not([href*='Gallery']):not(
+    [href*='Order']
+  ):hover::after,
+.muchloved-cards
+  .ml-notice
+  a.ml-link[target='_blank'][href*='.muchloved.com']:not([href*='Gallery']):not(
+    [href*='Order']
+  ):hover::before,
+.muchloved-cards
+  .ml-notice
+  a.ml-link[target='_blank'][href*='.muchloved.com']:not([href*='Gallery']):not(
+    [href*='Order']
+  ):hover::after {
+  color: var(--accent-gold-hover) !important;
 }
 
 /* Limit items displayed - only on home page */
@@ -1980,6 +2090,7 @@ span.ml-funeral-location {
 /* Ensure tributes page shows ALL tributes */
 .tributes-content .ml-notice {
   display: flex !important;
+  position: relative !important;
 }
 
 /* MuchLoved pagination styling */
@@ -2025,7 +2136,7 @@ span.ml-funeral-location {
 
 .tributes-content .muchloved-funerals-widget {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   align-items: stretch;
 }
@@ -2041,8 +2152,8 @@ span.ml-funeral-location {
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-height: 480px;
+  height: 540px;
+  max-height: 540px;
 }
 
 .tributes-content .ml-notice:hover {
@@ -2109,6 +2220,110 @@ span.ml-funeral-location {
 
 /* tributes-content link styling handled by global rules above */
 
+/* ===== Tributes Grid Styling ===== */
+.tributes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.tributes-grid .ml-notice {
+  height: 540px;
+  max-height: 540px;
+}
+
+@media only screen and (max-width: 640px) {
+  .tributes-grid,
+  .tributes-content .muchloved-funerals-widget {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Tributes Pagination Styles ===== */
+.tributes-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  flex-wrap: nowrap;
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--gray-warm);
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: var(--white);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-numbers {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--gray-warm);
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--navy);
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.pagination-number:hover:not(:disabled) {
+  background-color: var(--cream);
+  border-color: var(--accent-gold);
+}
+
+.pagination-number:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination-number:disabled:hover {
+  background-color: var(--white);
+  border-color: var(--gray-warm);
+}
+
+.pagination-number.active {
+  background-color: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .home-tributes-widget .ml-notice:hover,
@@ -2121,13 +2336,15 @@ span.ml-funeral-location {
 /* Mobile responsive cards */
 @media only screen and (max-width: 768px) {
   .home-tributes-widget .muchloved-funerals-widget,
+  .muchloved-cards .muchloved-funerals-widget,
   .tributes-content .muchloved-funerals-widget {
     grid-template-columns: 1fr;
   }
 
   .home-tributes-widget .ml-thumb,
+  .muchloved-cards .ml-thumb,
   .tributes-content .ml-thumb {
-    height: 180px;
+    height: 200px !important;
   }
 }
 
@@ -2577,6 +2794,10 @@ span.ml-funeral-location {
   align-items: stretch;
 }
 
+.packages-grid > * {
+  height: 100%;
+}
+
 /* Package Card */
 .package-card {
   background: var(--white);
@@ -2588,6 +2809,7 @@ span.ml-funeral-location {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   border: 2px solid transparent;
+  height: 100%;
 }
 
 .package-card:hover {
@@ -3409,6 +3631,7 @@ span.ml-funeral-location {
 .options-grid {
   @apply grid gap-6 mb-8;
   grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
 }
 
 @media (max-width: 1024px) {
@@ -3424,7 +3647,7 @@ span.ml-funeral-location {
 }
 
 .option-card {
-  @apply p-6 rounded-lg text-center;
+  @apply p-6 rounded-lg text-center flex flex-col h-full;
   background-color: var(--white);
   border: 1px solid var(--gray-warm);
   transition:
@@ -3448,12 +3671,12 @@ span.ml-funeral-location {
 }
 
 .option-card p {
-  @apply text-sm mb-3;
+  @apply text-sm mb-3 flex-grow;
   color: var(--text-secondary);
 }
 
 .option-card a {
-  @apply text-sm font-medium;
+  @apply text-sm font-medium mt-auto;
   color: var(--accent-gold);
 }
 

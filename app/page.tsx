@@ -1,6 +1,18 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import ScrollToHash from '@/components/ScrollToHash';
+import {
+  FadeIn,
+  FadeInUp,
+  FadeInLeft,
+  FadeInRight,
+  StaggerContainer,
+  StaggerItem,
+  HeroText,
+  ImageReveal,
+} from '@/components/animations';
 
 // Static data for services
 const services = [
@@ -86,51 +98,61 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="section-hero" aria-label="Welcome">
         <div className="hero-content">
-          <h1 className="hero-title">
-            Compassionate Care, Every Step of the Way
-          </h1>
-          <p className="hero-subtitle">
-            Final Journey Funeral Directors, Carlisle
-          </p>
-          <p className="hero-description">
-            Professional and respectful, with heartfelt care and discretion
-            throughout. We guide every detail from first collection to a
-            meaningful farewell, tailored to you.
-          </p>
-          <div className="hero-buttons">
-            <Link
-              href="/contact"
-              className="btn-primary"
-              aria-label="Contact us to begin planning"
-            >
-              Contact Us
-            </Link>
-            <Link
-              href="/services"
-              className="btn-secondary"
-              style={{ color: 'white', borderColor: 'white' }}
-              aria-label="View our services"
-            >
-              Our Services
-            </Link>
-          </div>
+          <HeroText delay={0.2}>
+            <h1 className="hero-title">
+              Compassionate Care, Every Step of the Way
+            </h1>
+          </HeroText>
+          <HeroText delay={0.4}>
+            <p className="hero-subtitle">
+              Final Journey Funeral Directors, Carlisle
+            </p>
+          </HeroText>
+          <HeroText delay={0.6}>
+            <p className="hero-description">
+              Professional and respectful, with heartfelt care and discretion
+              throughout. We guide every detail from first collection to a
+              meaningful farewell, tailored to you.
+            </p>
+          </HeroText>
+          <HeroText delay={0.8}>
+            <div className="hero-buttons">
+              <Link
+                href="/contact"
+                className="btn-primary"
+                aria-label="Contact us to begin planning"
+              >
+                Contact Us
+              </Link>
+              <Link
+                href="/services"
+                className="btn-secondary"
+                style={{ color: 'white', borderColor: 'white' }}
+                aria-label="View our services"
+              >
+                Our Services
+              </Link>
+            </div>
+          </HeroText>
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="section" aria-labelledby="about-heading">
         <div className="section-container">
-          <h2 id="about-heading" className="section-heading">
-            About Us
-          </h2>
-          <p className="section-subheading">
-            Final Journey is a professional funeral director based in Carlisle,
-            dedicated to providing compassionate care and dignified services. We
-            work closely with families to create meaningful tributes that honour
-            their loved ones.
-          </p>
+          <FadeInUp>
+            <h2 id="about-heading" className="section-heading">
+              About Us
+            </h2>
+            <p className="section-subheading">
+              Final Journey is a professional funeral director based in
+              Carlisle, dedicated to providing compassionate care and dignified
+              services. We work closely with families to create meaningful
+              tributes that honour their loved ones.
+            </p>
+          </FadeInUp>
           <div className="grid md:grid-cols-2 gap-12 items-center mt-12">
-            <div>
+            <FadeInLeft delay={0.2}>
               <p className="section-text" style={{ maxWidth: '100%' }}>
                 Our dedicated team offers guidance and support when you need it
                 most. We believe in transparent pricing, personalised care, and
@@ -142,23 +164,27 @@ export default function Home() {
                 matters most—remembering and celebrating the life of your loved
                 one.
               </p>
-              <Link
-                href="/about"
-                className="btn-secondary mt-6 inline-block"
-                aria-label="Read more about our story"
-              >
-                Learn More About Us
-              </Link>
-            </div>
-            <div className="relative h-80 md:h-96 rounded-lg overflow-hidden shadow-xl">
-              <Image
-                src="/images/van.jpg"
-                alt="Final Journey funeral vehicle"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-            </div>
+              <div className="text-center md:text-left">
+                <Link
+                  href="/about"
+                  className="btn-secondary mt-6 inline-block"
+                  aria-label="Read more about our story"
+                >
+                  Learn More About Us
+                </Link>
+              </div>
+            </FadeInLeft>
+            <FadeInRight delay={0.3}>
+              <div className="relative h-80 md:h-96 rounded-lg overflow-hidden shadow-xl">
+                <Image
+                  src="/images/van.jpg"
+                  alt="Final Journey funeral vehicle"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </FadeInRight>
           </div>
         </div>
       </section>
@@ -170,99 +196,119 @@ export default function Home() {
         aria-labelledby="services-heading"
       >
         <div className="section-container">
-          <h2 id="services-heading" className="section-heading">
-            Our Services
-          </h2>
-          <p className="section-subheading">
-            We offer a complete range of funeral services, each designed to
-            provide comfort and create a fitting tribute for your loved one.
-          </p>
-          <div className="services-grid">
-            {services.map((service) => (
-              <Link
-                key={service.title}
-                href={service.href}
-                className="service-card"
-              >
-                <div className="service-icon-wrapper">
-                  <Image
-                    src={service.icon}
-                    alt={service.title}
-                    width={48}
-                    height={48}
-                    className="service-icon"
-                  />
-                </div>
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
-                <span className="service-arrow">Learn More →</span>
-              </Link>
-            ))}
-          </div>
+          <FadeInUp>
+            <h2 id="services-heading" className="section-heading">
+              Our Services
+            </h2>
+            <p className="section-subheading">
+              We offer a complete range of funeral services, each designed to
+              provide comfort and create a fitting tribute for your loved one.
+            </p>
+          </FadeInUp>
+          <FadeInUp delay={0.2}>
+            <div className="services-grid">
+              {services.map((service) => (
+                <Link
+                  key={service.title}
+                  href={service.href}
+                  className="service-card"
+                >
+                  <div className="service-icon-wrapper">
+                    <Image
+                      src={service.icon}
+                      alt={service.title}
+                      width={48}
+                      height={48}
+                      className="service-icon"
+                    />
+                  </div>
+                  <h3 className="service-title">{service.title}</h3>
+                  <p className="service-description">{service.description}</p>
+                  <span className="service-arrow">Learn More →</span>
+                </Link>
+              ))}
+            </div>
+          </FadeInUp>
         </div>
       </section>
 
       {/* What to Do Guide Section */}
       <section id="guide" className="section" aria-labelledby="guide-heading">
         <div className="section-container">
-          <h2 id="guide-heading" className="section-heading">
-            What to Do When Someone Dies
-          </h2>
-          <p className="section-subheading">
-            Losing someone is overwhelming. Our helpful guide walks you through
-            each step, from the first phone call to organising the funeral.
-          </p>
+          <FadeInUp>
+            <h2 id="guide-heading" className="section-heading">
+              What to Do When Someone Dies
+            </h2>
+            <p className="section-subheading">
+              Losing someone is overwhelming. Our helpful guide walks you
+              through each step, from the first phone call to organising the
+              funeral.
+            </p>
+          </FadeInUp>
           <div className="guide-teaser">
-            <div className="guide-teaser-image">
-              <Image
-                src="/images/support.webp"
-                alt="Compassionate support during difficult times"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="guide-teaser-steps">
-              <div className="guide-step">
-                <span className="guide-step-number">1</span>
-                <div>
-                  <h3>Obtain a Medical Certificate</h3>
-                  <p>
-                    Contact the doctor to confirm death and receive the
-                    necessary paperwork
-                  </p>
-                </div>
+            <FadeInLeft delay={0.2}>
+              <div className="guide-teaser-image">
+                <Image
+                  src="/images/support.webp"
+                  alt="Compassionate support during difficult times"
+                  fill
+                  className="object-cover"
+                />
               </div>
-              <div className="guide-step">
-                <span className="guide-step-number">2</span>
-                <div>
-                  <h3>Register the Death</h3>
-                  <p>
-                    Visit the registrar within 5 days with the medical
-                    certificate
-                  </p>
-                </div>
-              </div>
-              <div className="guide-step">
-                <span className="guide-step-number">3</span>
-                <div>
-                  <h3>Plan the Funeral</h3>
-                  <p>
-                    We&apos;ll guide you through every option to create a
-                    meaningful farewell
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="section-cta">
-            <Link
-              href="/what-to-do-when-someone-dies"
-              className="btn-primary"
-              aria-label="Read our complete guide"
+            </FadeInLeft>
+            <StaggerContainer
+              className="guide-teaser-steps"
+              staggerDelay={0.15}
             >
-              Read the Full Guide
-            </Link>
+              <StaggerItem>
+                <div className="guide-step">
+                  <span className="guide-step-number">1</span>
+                  <div>
+                    <h3>Obtain a Medical Certificate</h3>
+                    <p>
+                      Contact the doctor to confirm death and receive the
+                      necessary paperwork
+                    </p>
+                  </div>
+                </div>
+              </StaggerItem>
+              <StaggerItem>
+                <div className="guide-step">
+                  <span className="guide-step-number">2</span>
+                  <div>
+                    <h3>Register the Death</h3>
+                    <p>
+                      Visit the registrar within 5 days with the medical
+                      certificate
+                    </p>
+                  </div>
+                </div>
+              </StaggerItem>
+              <StaggerItem>
+                <div className="guide-step">
+                  <span className="guide-step-number">3</span>
+                  <div>
+                    <h3>Plan the Funeral</h3>
+                    <p>
+                      We&apos;ll guide you through every option to create a
+                      meaningful farewell
+                    </p>
+                  </div>
+                </div>
+              </StaggerItem>
+            </StaggerContainer>
           </div>
+          <FadeInUp delay={0.4}>
+            <div className="section-cta">
+              <Link
+                href="/what-to-do-when-someone-dies"
+                className="btn-primary"
+                aria-label="Read our complete guide"
+              >
+                Read the Full Guide
+              </Link>
+            </div>
+          </FadeInUp>
         </div>
       </section>
 
@@ -273,26 +319,30 @@ export default function Home() {
         aria-labelledby="gallery-heading"
       >
         <div className="section-container">
-          <h2 id="gallery-heading" className="section-heading">
-            Gallery
-          </h2>
-          <p className="section-subheading">
-            Moments of dignity, care, and remembrance. Every service reflects
-            our commitment to honoring your loved ones.
-          </p>
-          <div className="gallery-grid">
+          <FadeInUp>
+            <h2 id="gallery-heading" className="section-heading">
+              Gallery
+            </h2>
+            <p className="section-subheading">
+              Moments of dignity, care, and remembrance. Every service reflects
+              our commitment to honoring your loved ones.
+            </p>
+          </FadeInUp>
+          <StaggerContainer className="gallery-grid" staggerDelay={0.08}>
             {galleryImages.map((image, index) => (
-              <div key={index} className="gallery-item">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
+              <StaggerItem key={index}>
+                <div className="gallery-item">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -303,23 +353,27 @@ export default function Home() {
         aria-labelledby="testimonials-heading"
       >
         <div className="section-container">
-          <h2 id="testimonials-heading" className="section-heading">
-            What Families Say
-          </h2>
-          <p className="section-subheading">
-            Genuine words from the people we have supported — shared with
-            gratitude.
-          </p>
-          <div className="testimonials-grid">
+          <FadeInUp>
+            <h2 id="testimonials-heading" className="section-heading">
+              What Families Say
+            </h2>
+            <p className="section-subheading">
+              Genuine words from the people we have supported — shared with
+              gratitude.
+            </p>
+          </FadeInUp>
+          <StaggerContainer className="testimonials-grid" staggerDelay={0.15}>
             {testimonials.map((testimonial, index) => (
-              <blockquote key={index} className="testimonial-card">
-                <p className="testimonial-quote">{testimonial.quote}</p>
-                <footer className="testimonial-author">
-                  — {testimonial.author}
-                </footer>
-              </blockquote>
+              <StaggerItem key={index}>
+                <blockquote className="testimonial-card">
+                  <p className="testimonial-quote">{testimonial.quote}</p>
+                  <footer className="testimonial-author">
+                    — {testimonial.author}
+                  </footer>
+                </blockquote>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
@@ -330,30 +384,28 @@ export default function Home() {
         aria-label="Contact call to action"
       >
         <div className="section-container relative z-10">
-          <h2 className="cta-banner-heading">
-            Ready to Plan a Meaningful Farewell?
-          </h2>
-          <p className="cta-banner-text">
-            Our compassionate team is here to support you with dedicated,
-            personal care. We&apos;re only a phone call away.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              href="/contact"
-              className="btn-primary"
-              aria-label="Get in touch with us"
-            >
-              Get in Touch
-            </Link>
-            <a
-              href="tel:01228595060"
-              className="btn-secondary"
-              style={{ color: 'white', borderColor: 'white' }}
-              aria-label="Call us now"
-            >
-              Call 01228 595060
-            </a>
-          </div>
+          <FadeInUp>
+            <h2 className="cta-banner-heading">
+              Ready to Plan a Meaningful Farewell?
+            </h2>
+          </FadeInUp>
+          <FadeInUp delay={0.2}>
+            <p className="cta-banner-text">
+              Our compassionate team is here to support you with dedicated,
+              personal care. We&apos;re only a phone call away.
+            </p>
+          </FadeInUp>
+          <FadeInUp delay={0.4}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                href="/contact"
+                className="btn-primary"
+                aria-label="Get in touch with us"
+              >
+                Get in Touch
+              </Link>
+            </div>
+          </FadeInUp>
         </div>
       </section>
     </>

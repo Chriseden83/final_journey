@@ -6,6 +6,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import emailjs from '@emailjs/browser';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import {
+  FadeInUp,
+  FadeInLeft,
+  FadeInRight,
+  HeroText,
+} from '@/components/animations';
 
 // Initialize EmailJS
 const EMAILJS_PUBLIC_KEY =
@@ -107,10 +113,14 @@ export default function ContactPage() {
       <section className="contact-hero">
         <div className="contact-hero-overlay" />
         <div className="contact-hero-content">
-          <h1 className="contact-hero-title">Contact Us</h1>
-          <p className="contact-hero-subtitle">
-            We&apos;re here to help when you need us
-          </p>
+          <HeroText delay={0.2}>
+            <h1 className="contact-hero-title">Contact Us</h1>
+          </HeroText>
+          <HeroText delay={0.4}>
+            <p className="contact-hero-subtitle">
+              We&apos;re here to help when you need us
+            </p>
+          </HeroText>
         </div>
       </section>
 
@@ -119,7 +129,7 @@ export default function ContactPage() {
         <div className="section-container">
           <div className="contact-grid">
             {/* Contact Form */}
-            <div className="contact-form-wrapper">
+            <FadeInLeft delay={0.2} className="contact-form-wrapper">
               <h2 className="contact-section-title">Send Us a Message</h2>
               <p className="contact-section-text">
                 Please complete the form below and we will get back to you as
@@ -304,10 +314,10 @@ export default function ContactPage() {
                   )}
                 </div>
               </form>
-            </div>
+            </FadeInLeft>
 
             {/* Contact Information */}
-            <div className="contact-info-wrapper">
+            <FadeInRight delay={0.3} className="contact-info-wrapper">
               <h2 className="contact-section-title">How to Find Us</h2>
 
               {/* Map */}
@@ -368,7 +378,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeInRight>
           </div>
         </div>
       </section>

@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Link from 'next/link';
 import {
   Check,
-  Phone,
   Heart,
   Sparkles,
   Crown,
@@ -14,6 +13,12 @@ import {
   Shield,
   Users,
 } from 'lucide-react';
+import {
+  FadeInUp,
+  StaggerContainer,
+  StaggerItem,
+  HeroText,
+} from '@/components/animations';
 
 // Package data
 const packages = [
@@ -578,77 +583,86 @@ export default function FuneralCostsPage() {
       {/* Hero Section */}
       <section className="costs-hero">
         <div className="costs-hero-content">
-          <h1 className="costs-hero-title">Funeral Costs</h1>
-          <p className="costs-hero-subtitle">
-            Transparent, honest pricing with no hidden fees. We believe every
-            family deserves to know exactly what they&apos;re paying for.
-          </p>
+          <HeroText delay={0.2}>
+            <h1 className="costs-hero-title">Funeral Costs</h1>
+          </HeroText>
+          <HeroText delay={0.4}>
+            <p className="costs-hero-subtitle">
+              Transparent, honest pricing with no hidden fees. We believe every
+              family deserves to know exactly what they&apos;re paying for.
+            </p>
+          </HeroText>
         </div>
       </section>
 
       {/* USP Bar */}
       <section className="usp-bar">
-        <div className="usp-container">
+        <StaggerContainer className="usp-container" staggerDelay={0.1}>
           {uspFeatures.map((feature) => (
-            <div key={feature.title} className="usp-item">
-              <feature.icon className="usp-icon" />
-              <div className="usp-text">
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
+            <StaggerItem key={feature.title}>
+              <div className="usp-item">
+                <feature.icon className="usp-icon" />
+                <div className="usp-text">
+                  <h3>{feature.title}</h3>
+                  <p>{feature.description}</p>
+                </div>
               </div>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </section>
 
       {/* Package Cards Section */}
       <section className="packages-section">
         <div className="packages-container">
-          <h2 className="packages-heading">Choose Your Package</h2>
-          <p className="packages-subheading">
-            Three carefully designed options to suit different needs and
-            budgets. Each package can be personalised to create the perfect
-            farewell.
-          </p>
+          <FadeInUp>
+            <h2 className="packages-heading">Choose Your Package</h2>
+            <p className="packages-subheading">
+              Three carefully designed options to suit different needs and
+              budgets. Each package can be personalised to create the perfect
+              farewell.
+            </p>
+          </FadeInUp>
 
-          <div className="packages-grid">
+          <StaggerContainer className="packages-grid" staggerDelay={0.15}>
             {packages.map((pkg) => (
-              <div
-                key={pkg.id}
-                className={`package-card ${pkg.highlight ? 'package-card-featured' : ''}`}
-              >
-                {pkg.highlight && (
-                  <div className="package-badge">Most Popular</div>
-                )}
-                <div className="package-header">
-                  <pkg.icon className="package-icon" />
-                  <h3 className="package-name">{pkg.name}</h3>
-                  <p className="package-tagline">{pkg.tagline}</p>
+              <StaggerItem key={pkg.id}>
+                <div
+                  className={`package-card ${pkg.highlight ? 'package-card-featured' : ''}`}
+                >
+                  {pkg.highlight && (
+                    <div className="package-badge">Most Popular</div>
+                  )}
+                  <div className="package-header">
+                    <pkg.icon className="package-icon" />
+                    <h3 className="package-name">{pkg.name}</h3>
+                    <p className="package-tagline">{pkg.tagline}</p>
+                  </div>
+                  <div className="package-price">
+                    <span className="price-from">From</span>
+                    <span className="price-amount">
+                      £{pkg.price.toLocaleString()}
+                    </span>
+                  </div>
+                  <p className="package-description">{pkg.description}</p>
+                  <ul className="package-features">
+                    {pkg.features.map((feature, index) => (
+                      <li key={index}>
+                        <Check className="feature-check" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="package-price">
-                  <span className="price-from">From</span>
-                  <span className="price-amount">
-                    £{pkg.price.toLocaleString()}
-                  </span>
-                </div>
-                <p className="package-description">{pkg.description}</p>
-                <ul className="package-features">
-                  {pkg.features.map((feature, index) => (
-                    <li key={index}>
-                      <Check className="feature-check" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
       {/* Price Comparison Note */}
       <section className="comparison-note">
-        <div className="comparison-container">
+        <FadeInUp className="comparison-container">
           <Info className="comparison-icon" />
           <div className="comparison-content">
             <h3>How We Compare</h3>
@@ -660,17 +674,19 @@ export default function FuneralCostsPage() {
               fair, transparent prices.
             </p>
           </div>
-        </div>
+        </FadeInUp>
       </section>
 
       {/* Detailed Price List with Tabs */}
       <section className="pricelist-section">
         <div className="pricelist-container">
-          <h2 className="pricelist-heading">Detailed Price List</h2>
-          <p className="pricelist-subheading">
-            Every service itemised so you know exactly what you&apos;re paying
-            for. Mix and match to create the perfect arrangement.
-          </p>
+          <FadeInUp>
+            <h2 className="pricelist-heading">Detailed Price List</h2>
+            <p className="pricelist-subheading">
+              Every service itemised so you know exactly what you&apos;re paying
+              for. Mix and match to create the perfect arrangement.
+            </p>
+          </FadeInUp>
 
           {/* Tab Navigation */}
           <div className="pricelist-tabs">
@@ -743,10 +759,6 @@ export default function FuneralCostsPage() {
             <Link href="/contact" className="btn-primary">
               Get in Touch
             </Link>
-            <a href="tel:01228595060" className="btn-secondary costs-phone-btn">
-              <Phone className="phone-icon" />
-              01228 595060
-            </a>
           </div>
         </div>
       </section>
