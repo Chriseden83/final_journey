@@ -12,7 +12,7 @@ const mainLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About Us' },
   { href: '/funeral-costs', label: 'Pricing' },
-  { href: '/what-to-do-when-someone-dies', label: 'Bereavement Guide' },
+  { href: '/what-to-do-when-someone-dies', label: 'What To Do?' },
   { href: '/grief-chat', label: 'Grief Chat' },
   { href: '/tributes', label: 'Tributes' },
   { href: '/contact', label: 'Contact' },
@@ -119,11 +119,11 @@ export default function MobileNav() {
               style={{ transitionDelay: isOpen ? '250ms' : '0ms' }}
             >
               <Link
-                href="/services/personalised-funerals"
+                href="/#services"
                 className={`mobile-premium-link ${isServicePage ? 'mobile-premium-link-active' : ''}`}
                 onClick={closeMenu}
               >
-                Our Services
+                Services
               </Link>
             </li>
 

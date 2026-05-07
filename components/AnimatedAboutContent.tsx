@@ -165,11 +165,6 @@ export default function AnimatedAboutContent() {
           <HeroText delay={0.2}>
             <Heart className="page-hero-heart-icon" aria-hidden="true" />
           </HeroText>
-          <HeroText delay={0.3}>
-            <span className="about-hero-label">
-              Independent Funeral Directors · Carlisle
-            </span>
-          </HeroText>
           <HeroText delay={0.5}>
             <h1 className="about-hero-title">
               A Different Kind of Funeral Director

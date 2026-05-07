@@ -974,6 +974,14 @@ html {
   }
 }
 
+@media (max-width: 768px) {
+  .section-hero {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    overflow: hidden;
+  }
+}
+
 .section-hero::before {
   content: '';
   @apply absolute inset-0;
@@ -4031,6 +4039,7 @@ span.ml-funeral-location {
   padding: 100px 20px 80px;
   overflow: hidden;
   isolation: isolate;
+  border-radius: 0;
 }
 
 .about-hero::before {
@@ -4042,14 +4051,21 @@ span.ml-funeral-location {
   z-index: 0;
 }
 
-.about-hero-overlay {
-  @apply absolute inset-0;
+.about-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
-    180deg,
-    rgba(26, 31, 46, 0.7) 0%,
-    rgba(26, 31, 46, 0.9) 100%
+    135deg,
+    rgba(74, 74, 71, 0.78) 0%,
+    rgba(90, 90, 86, 0.68) 100%
   );
   z-index: 1;
+  pointer-events: none;
+}
+
+.about-hero-overlay {
+  display: none;
 }
 
 .about-hero-content {
@@ -4194,10 +4210,17 @@ span.ml-funeral-location {
 
 .about-values-grid {
   @apply grid sm:grid-cols-2 lg:grid-cols-4 gap-8;
+  align-items: stretch;
+}
+
+.about-values-grid > div {
+  display: flex;
+  flex-direction: column;
 }
 
 .about-value-card {
   @apply p-8 rounded-xl text-center;
+  height: 100%;
   background: var(--cream);
   border: 1px solid rgba(201, 169, 98, 0.1);
   transition: all 0.3s ease;
@@ -4411,6 +4434,8 @@ span.ml-funeral-location {
 @media (max-width: 768px) {
   .about-hero {
     @apply min-h-[50vh];
+    padding: 120px 20px 100px;
+    border-radius: 0;
   }
 
   .about-hero-title {
