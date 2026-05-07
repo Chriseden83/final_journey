@@ -175,8 +175,8 @@ export default function AnimatedWhatToDoContent() {
               <div className="guide-card guide-card-highlight">
                 <h3>When a death is reported to a coroner</h3>
                 <p>
-                  If a death is reported to a coroner, the documents you need
-                  to register the death may be different.
+                  If a death is reported to a coroner, the documents you need to
+                  register the death may be different.
                 </p>
                 <p>
                   The coroner will try to find out how the person died.
@@ -192,17 +192,15 @@ export default function AnimatedWhatToDoContent() {
                 </p>
 
                 <h4>If the coroner finds the cause of death</h4>
-                <p>
-                  If the coroner decides that the cause of death is clear:
-                </p>
+                <p>If the coroner decides that the cause of death is clear:</p>
                 <ul>
                   <li>
                     They&apos;ll issue a certificate to the registrar saying
                     that an inquest is not needed.
                   </li>
                   <li>
-                    The registrar will then contact you to arrange for the
-                    death to be registered.
+                    The registrar will then contact you to arrange for the death
+                    to be registered.
                   </li>
                 </ul>
 
@@ -210,8 +208,12 @@ export default function AnimatedWhatToDoContent() {
                 <p>A coroner must hold an inquest if:</p>
                 <ul>
                   <li>The cause of death is still unknown</li>
-                  <li>The person might have died a violent or unnatural death</li>
-                  <li>The person might have died in prison or police custody</li>
+                  <li>
+                    The person might have died a violent or unnatural death
+                  </li>
+                  <li>
+                    The person might have died in prison or police custody
+                  </li>
                 </ul>
 
                 <h4>Death certificates</h4>
@@ -234,8 +236,8 @@ export default function AnimatedWhatToDoContent() {
 
                 <h4>If a post-mortem is needed</h4>
                 <p>
-                  The coroner may decide a post-mortem is needed to find out
-                  how the person died. This can be done either in a hospital or
+                  The coroner may decide a post-mortem is needed to find out how
+                  the person died. This can be done either in a hospital or
                   mortuary.
                 </p>
                 <p>
@@ -243,9 +245,9 @@ export default function AnimatedWhatToDoContent() {
                   to investigate the death.
                 </p>
                 <p>
-                  You cannot object to a coroner&apos;s post-mortem. If you
-                  ask, the coroner must tell you (and the person&apos;s GP)
-                  when and where the examination will take place.
+                  You cannot object to a coroner&apos;s post-mortem. If you ask,
+                  the coroner must tell you (and the person&apos;s GP) when and
+                  where the examination will take place.
                 </p>
 
                 <h4>After the post-mortem</h4>
@@ -255,9 +257,9 @@ export default function AnimatedWhatToDoContent() {
                   examinations are needed.
                 </p>
                 <p>
-                  If the body is released with no inquest, the coroner will
-                  send a form (&apos;Form CN2&apos;) to the registrar stating
-                  the cause of death.
+                  If the body is released with no inquest, the coroner will send
+                  a form (&apos;Form CN2&apos;) to the registrar stating the
+                  cause of death.
                 </p>
                 <p>
                   The coroner will also send a &apos;Certificate of Coroner -
@@ -278,8 +280,8 @@ export default function AnimatedWhatToDoContent() {
               <div className="guide-card">
                 <h3>Within 5 days of issue of the Medical Certificate</h3>
                 <p>
-                  If the person has not been seen by a doctor within the last
-                  28 days, the death may be referred to a coroner.
+                  If the person has not been seen by a doctor within the last 28
+                  days, the death may be referred to a coroner.
                 </p>
                 <p>
                   After someone dies, their doctor must confirm the death before
@@ -287,9 +289,9 @@ export default function AnimatedWhatToDoContent() {
                 </p>
                 <p>
                   A medical examiner will then check the cause of death to make
-                  sure it&apos;s accurate. They will be a senior doctor and
-                  they will not have been involved in the care of the person
-                  who has died.
+                  sure it&apos;s accurate. They will be a senior doctor and they
+                  will not have been involved in the care of the person who has
+                  died.
                 </p>
                 <p>
                   The medical examiner&apos;s office will then contact you to:
@@ -301,9 +303,7 @@ export default function AnimatedWhatToDoContent() {
                     to the person before they died
                   </li>
                 </ul>
-                <p>
-                  This is voluntary and you do not have to speak to them.
-                </p>
+                <p>This is voluntary and you do not have to speak to them.</p>
                 <p>
                   You must wait for the medical examiner&apos;s office to
                   confirm you can register the death.
