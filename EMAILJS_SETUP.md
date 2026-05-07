@@ -48,7 +48,7 @@ New Enquiry from {{from_name}} - {{funeral_type}}
       <!-- Header -->
       <tr>
         <td
-          style="background-color: #242b3d; padding: 30px 40px; text-align: center;"
+          style="background-color: #4a4a47; padding: 30px 40px; text-align: center;"
         >
           <h1
             style="margin: 0; color: #c9a962; font-family: Georgia, serif; font-size: 28px; font-weight: 600;"
@@ -72,12 +72,12 @@ New Enquiry from {{from_name}} - {{funeral_type}}
       <tr>
         <td style="padding: 40px;">
           <h2
-            style="margin: 0 0 20px; color: #1a1f2e; font-family: Georgia, serif; font-size: 24px; font-weight: 600;"
+            style="margin: 0 0 20px; color: #4a4a47; font-family: Georgia, serif; font-size: 24px; font-weight: 600;"
           >
             New Contact Enquiry
           </h2>
 
-          <p style="margin: 0 0 30px; color: #4a5568; line-height: 1.6;">
+          <p style="margin: 0 0 30px; color: #5a5a56; line-height: 1.6;">
             You have received a new enquiry through the website contact form.
           </p>
 
@@ -99,14 +99,14 @@ New Enquiry from {{from_name}} - {{funeral_type}}
                 >
                   <tr>
                     <td
-                      style="padding: 8px 0; color: #718096; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;"
+                      style="padding: 8px 0; color: #8b8b88; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;"
                     >
                       Name
                     </td>
                   </tr>
                   <tr>
                     <td
-                      style="padding: 0 0 20px; color: #1a1f2e; font-size: 16px;"
+                      style="padding: 0 0 20px; color: #4a4a47; font-size: 16px;"
                     >
                       {{from_name}}
                     </td>
@@ -114,7 +114,7 @@ New Enquiry from {{from_name}} - {{funeral_type}}
 
                   <tr>
                     <td
-                      style="padding: 8px 0; color: #718096; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;"
+                      style="padding: 8px 0; color: #8b8b88; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;"
                     >
                       Email
                     </td>
@@ -131,7 +131,7 @@ New Enquiry from {{from_name}} - {{funeral_type}}
 
                   <tr>
                     <td
-                      style="padding: 8px 0; color: #718096; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;"
+                      style="padding: 8px 0; color: #8b8b88; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;"
                     >
                       Phone
                     </td>
@@ -148,14 +148,14 @@ New Enquiry from {{from_name}} - {{funeral_type}}
 
                   <tr>
                     <td
-                      style="padding: 8px 0; color: #718096; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;"
+                      style="padding: 8px 0; color: #8b8b88; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;"
                     >
                       Service Type
                     </td>
                   </tr>
                   <tr>
                     <td
-                      style="padding: 0 0 20px; color: #1a1f2e; font-size: 16px;"
+                      style="padding: 0 0 20px; color: #4a4a47; font-size: 16px;"
                     >
                       {{funeral_type}}
                     </td>
@@ -163,14 +163,14 @@ New Enquiry from {{from_name}} - {{funeral_type}}
 
                   <tr>
                     <td
-                      style="padding: 8px 0; color: #718096; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;"
+                      style="padding: 8px 0; color: #8b8b88; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;"
                     >
                       Message
                     </td>
                   </tr>
                   <tr>
                     <td
-                      style="padding: 0; color: #1a1f2e; font-size: 16px; line-height: 1.6;"
+                      style="padding: 0; color: #4a4a47; font-size: 16px; line-height: 1.6;"
                     >
                       {{message}}
                     </td>
@@ -191,7 +191,7 @@ New Enquiry from {{from_name}} - {{funeral_type}}
               <td style="background-color: #c9a962; border-radius: 4px;">
                 <a
                   href="mailto:{{from_email}}"
-                  style="display: inline-block; padding: 14px 30px; color: #1a1f2e; text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;"
+                  style="display: inline-block; padding: 14px 30px; color: #4a4a47; text-decoration: none; font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;"
                 >
                   Reply to Enquiry
                 </a>
@@ -204,7 +204,7 @@ New Enquiry from {{from_name}} - {{funeral_type}}
       <!-- Footer -->
       <tr>
         <td
-          style="background-color: #1a1f2e; padding: 30px 40px; text-align: center;"
+          style="background-color: #4a4a47; padding: 30px 40px; text-align: center;"
         >
           <p
             style="margin: 0 0 10px; color: rgba(255,255,255,0.7); font-size: 14px;"

@@ -113,9 +113,9 @@ export default function Home() {
           </HeroText>
           <HeroText delay={0.7}>
             <p className="hero-description">
-              Professional and respectful, with heartfelt care and discretion
-              throughout. We guide every detail from first collection to a
-              meaningful farewell, tailored to you.
+              Contact us for professional and respectful care, with heartfelt
+              support and discretion throughout. We guide every detail from
+              first contact to a meaningful farewell, tailored to you.
             </p>
           </HeroText>
           <HeroText delay={0.9}>
@@ -157,7 +157,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center mt-12">
             <FadeInLeft delay={0.2}>
               <p className="section-text" style={{ maxWidth: '100%' }}>
-                Our dedicated team offers guidance and support when you need it
+                We are dedicated to offer support and guidance when you need it
                 most. We believe in transparent pricing, personalised care, and
                 treating every family with the respect they deserve.
               </p>

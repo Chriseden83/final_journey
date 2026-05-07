@@ -602,7 +602,7 @@ export default function FuneralCostsPage() {
       <section className="packages-section">
         <div className="packages-container">
           <FadeInUp>
-            <h2 className="packages-heading">Choose Your Package</h2>
+            <h2 className="packages-heading">Choose your Funeral</h2>
             <p className="packages-subheading">
               Two carefully designed options to suit different needs and
               budgets. Each package can be personalised to create the perfect

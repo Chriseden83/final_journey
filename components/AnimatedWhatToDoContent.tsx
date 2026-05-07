@@ -173,23 +173,95 @@ export default function AnimatedWhatToDoContent() {
               </div>
 
               <div className="guide-card guide-card-highlight">
-                <h3>If death occurs suddenly</h3>
+                <h3>When a death is reported to a coroner</h3>
                 <p>
-                  If the person has not been seen by a doctor within the last 14
-                  days, or if death was:
+                  If a death is reported to a coroner, the documents you need
+                  to register the death may be different.
+                </p>
+                <p>
+                  The coroner will try to find out how the person died.
+                  They&apos;ll release the body for cremation or burial once
+                  they&apos;ve carried out their examinations.
+                </p>
+
+                <h4>If the coroner does not investigate</h4>
+                <p>
+                  The coroner might decide that they do not need to investigate
+                  after a death is reported to them. The medical examiner will
+                  contact you to confirm you can register the death.
+                </p>
+
+                <h4>If the coroner finds the cause of death</h4>
+                <p>
+                  If the coroner decides that the cause of death is clear:
                 </p>
                 <ul>
-                  <li>Following an accident or injury</li>
-                  <li>Due to an industrial disease</li>
-                  <li>During a surgical operation</li>
-                  <li>Of unknown or unexplained cause</li>
+                  <li>
+                    They&apos;ll issue a certificate to the registrar saying
+                    that an inquest is not needed.
+                  </li>
+                  <li>
+                    The registrar will then contact you to arrange for the
+                    death to be registered.
+                  </li>
                 </ul>
+
+                <h4>If the coroner holds an inquest</h4>
+                <p>A coroner must hold an inquest if:</p>
+                <ul>
+                  <li>The cause of death is still unknown</li>
+                  <li>The person might have died a violent or unnatural death</li>
+                  <li>The person might have died in prison or police custody</li>
+                </ul>
+
+                <h4>Death certificates</h4>
                 <p>
-                  The body will immediately be in care of the coroner. A Post
-                  Mortem may be carried out to establish the cause of death. The
-                  police may be involved and may want to question family members
-                  &ndash; this is standard procedure. This can be an upsetting
-                  time, but please know it is normal.
+                  If you need proof of the death while you wait for the inquest
+                  to finish, ask the coroner for an interim death certificate.
+                </p>
+                <p>
+                  Once the inquest is over, you can get the final death
+                  certificate from the registrar.
+                </p>
+                <p>You can use either certificate to:</p>
+                <ul>
+                  <li>apply for probate</li>
+                  <li>
+                    report the death to more than one government organisation
+                    using Tell Us Once - the registrar can help you to do this
+                  </li>
+                </ul>
+
+                <h4>If a post-mortem is needed</h4>
+                <p>
+                  The coroner may decide a post-mortem is needed to find out
+                  how the person died. This can be done either in a hospital or
+                  mortuary.
+                </p>
+                <p>
+                  A post-mortem might take place even if the coroner decides not
+                  to investigate the death.
+                </p>
+                <p>
+                  You cannot object to a coroner&apos;s post-mortem. If you
+                  ask, the coroner must tell you (and the person&apos;s GP)
+                  when and where the examination will take place.
+                </p>
+
+                <h4>After the post-mortem</h4>
+                <p>
+                  The coroner will release the body for a funeral once the
+                  post-mortem examinations are complete and no further
+                  examinations are needed.
+                </p>
+                <p>
+                  If the body is released with no inquest, the coroner will
+                  send a form (&apos;Form CN2&apos;) to the registrar stating
+                  the cause of death.
+                </p>
+                <p>
+                  The coroner will also send a &apos;Certificate of Coroner -
+                  form Cremation 6&apos; if the body is to be cremated.
                 </p>
               </div>
             </div>
@@ -204,24 +276,46 @@ export default function AnimatedWhatToDoContent() {
               </h2>
 
               <div className="guide-card">
-                <h3>Within 5 days</h3>
+                <h3>Within 5 days of issue of the Medical Certificate</h3>
                 <p>
-                  In England and Wales, a death must be registered within 5 days
-                  of the date of death, unless the Registrar says this period
-                  may be extended or if the coroner is involved. The
-                  registration itself will take approximately 30 minutes.
+                  If the person has not been seen by a doctor within the last
+                  28 days, the death may be referred to a coroner.
                 </p>
                 <p>
-                  Take the medical certificate to the registrar. You may bring a
-                  friend or relative with you, along with any documents (medical
-                  card, birth certificates, marriage certificates) that relate
-                  to the person who has died.
+                  After someone dies, their doctor must confirm the death before
+                  contacting the medical examiner. This can take a few days.
                 </p>
                 <p>
-                  <em>
-                    If you are upset, the Registrar will understand and will
-                    give you the time you need.
-                  </em>
+                  A medical examiner will then check the cause of death to make
+                  sure it&apos;s accurate. They will be a senior doctor and
+                  they will not have been involved in the care of the person
+                  who has died.
+                </p>
+                <p>
+                  The medical examiner&apos;s office will then contact you to:
+                </p>
+                <ul>
+                  <li>Explain the cause of death</li>
+                  <li>
+                    Answer any questions about this or the healthcare provided
+                    to the person before they died
+                  </li>
+                </ul>
+                <p>
+                  This is voluntary and you do not have to speak to them.
+                </p>
+                <p>
+                  You must wait for the medical examiner&apos;s office to
+                  confirm you can register the death.
+                </p>
+                <p>
+                  Register the death within 5 days (8 days in Scotland) of
+                  getting this confirmation. This includes weekends and bank
+                  holidays.
+                </p>
+                <p>
+                  If you need more than 5 days, you must tell the register
+                  office immediately.
                 </p>
               </div>
 
@@ -258,7 +352,7 @@ export default function AnimatedWhatToDoContent() {
                   <li>
                     <strong>Death certificates</strong> &ndash; may be required
                     by banks, building societies, solicitors, insurance and
-                    pension claims. Cost approximately £11 each at time of
+                    pension claims. Cost approximately £12.50 each at time of
                     registration.
                   </li>
                 </ul>

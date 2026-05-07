@@ -445,7 +445,8 @@ export default function AnimatedAboutContent() {
             <p className="about-cta-text">
               Whether you need immediate assistance, want to discuss
               pre-planning, or simply have questions about our services, our
-              dedicated team is here to help.
+              team is here to help. We are dedicated to offer support and
+              guidance when you need it most.
             </p>
             <div className="about-cta-buttons">
               <Link href="/contact" className="btn-primary">
