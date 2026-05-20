@@ -10,11 +10,11 @@ import { FaFacebook, FaInstagram, FaPhone } from 'react-icons/fa';
 // Main navigation links
 const mainLinks = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Us' },
-  { href: '/funeral-costs', label: 'Pricing' },
+  { href: '/about', label: 'About' },
   { href: '/what-to-do-when-someone-dies', label: 'What To Do?' },
   { href: '/grief-chat', label: 'Grief Chat' },
   { href: '/tributes', label: 'Tributes' },
+  { href: '/funeral-costs', label: 'Prices' },
   { href: '/contact', label: 'Contact' },
 ];
 

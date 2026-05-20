@@ -85,7 +85,7 @@ export function FadeIn({
   delay = 0,
   duration = 0.6,
   once = true,
-  amount = 0.3,
+  amount = 0.1,
 }: AnimationProps) {
   return (
     <motion.div
@@ -113,7 +113,7 @@ export function FadeInUp({
   delay = 0,
   duration = 0.6,
   once = true,
-  amount = 0.3,
+  amount = 0.1,
 }: AnimationProps) {
   return (
     <motion.div
