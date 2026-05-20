@@ -532,7 +532,7 @@ const standardisedPriceList = {
   feesYouMustPay: [
     {
       name: 'For an Attended or Unattended burial funeral, the burial fee.',
-      price: '£1,000',
+      price: 'see below',
       hasFootnote: 1,
     },
     {
