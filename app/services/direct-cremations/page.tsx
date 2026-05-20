@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 export default function DirectCremationsPage() {
   return (
     <AnimatedServiceHero
-      imageSrc="/images/direct_cremation.webp"
-      imageAlt="Direct cremation service"
+      imageSrc="/images/scatter_tube.webp"
+      imageAlt="Scatter tube for ashes"
       titleLine1="Direct"
       titleLine2="Cremations"
       subtitle="A Simple Alternative"

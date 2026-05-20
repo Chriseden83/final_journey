@@ -66,67 +66,6 @@ const packages = [
 // Detailed price list data organized by category
 const priceCategories = [
   {
-    id: 'professional',
-    name: 'Professional Services',
-    items: [
-      {
-        name: 'Legal and administrative arrangements',
-        price: 155,
-        included: ['attended'],
-        description: 'Collecting and transporting deceased within 15 miles',
-      },
-      {
-        name: 'Care of deceased person',
-        price: 200,
-        included: ['attended'],
-        description: 'At our chapel, 2 Durdar Road, Carlisle, CA2 4SA',
-      },
-      {
-        name: 'Oak Veneered Coffin',
-        price: 495,
-        included: ['attended'],
-        description: 'With Brass or Nickel effect fittings or rope handles',
-      },
-      {
-        name: 'Viewing of deceased',
-        price: 0,
-        included: ['attended'],
-        description: 'For family and friends, by appointment',
-      },
-      {
-        name: 'Transport to cemetery/crematorium',
-        price: 250,
-        included: ['attended'],
-        description:
-          'Within 20 miles of our premises in a hearse or appropriate vehicle',
-      },
-      {
-        name: 'Additional mileage',
-        price: '£2.00/mile',
-        included: [],
-        description: 'For distances beyond the included radius',
-      },
-      {
-        name: 'Additional transfers',
-        price: 165,
-        included: [],
-        description: 'E.g. to their home, place of worship etc.',
-      },
-      {
-        name: 'Embalming',
-        price: 150,
-        included: [],
-        description: 'Approximate cost',
-      },
-      {
-        name: 'Services outside normal office hours',
-        price: 'POA',
-        included: [],
-        description: 'Prices on request',
-      },
-    ],
-  },
-  {
     id: 'coffins',
     name: 'Coffins & Caskets',
     items: [
@@ -549,8 +488,99 @@ const uspFeatures = [
   },
 ];
 
+const standardisedPriceList = {
+  attended: {
+    total: '£1,995.00',
+    note: 'See breakdown of costs below.',
+    items: [
+      {
+        name: 'Taking care of all necessary legal and administrative arrangements',
+        price: '£895',
+      },
+      {
+        name: 'Collecting and transporting the deceased person from the place of death into our care (normally within 15 miles)',
+        price: '£155',
+      },
+      {
+        name: 'Care of the deceased person before the funeral in appropriate facilities',
+        price: '£200',
+      },
+      {
+        name: 'Providing a suitable coffin (Locally made Oak Veneered Coffin)',
+        price: '£495',
+      },
+      {
+        name: 'Viewing of the deceased person for family and friends, by appointment',
+        price: 'No charge',
+      },
+      {
+        name: 'Taking the deceased person direct to the agreed cemetery or crematorium (normally within 20 miles)',
+        price: '£250',
+      },
+    ],
+  },
+  unattended: [
+    {
+      name: "Burial (funeral director's charges only)",
+      price: '£895',
+    },
+    {
+      name: "Cremation (funeral director's charges plus the cremation fee)",
+      price: '£1,695',
+    },
+  ],
+  feesYouMustPay: [
+    {
+      name: 'For an Attended or Unattended burial funeral, the burial fee.',
+      price: '£1,000',
+      hasFootnote: 1,
+    },
+    {
+      name: 'In this local area, the typical cost of the burial fee for local residents is:',
+      price: '£350 - £1,000',
+      description:
+        'For a new grave, you will also need to pay for the plot; for an existing grave with a memorial in place, you may need to pay a removal/replacement fee. In addition, the cemetery may charge a number of other fees.',
+    },
+    {
+      name: 'For an Attended cremation funeral, the cremation fee.',
+      price: 'See below',
+      hasFootnote: 2,
+    },
+    {
+      name: 'In this local area, the typical cost of a cremation for local residents is:',
+      price: '£1,025 - £1,235',
+    },
+  ],
+  additional: [
+    {
+      name: 'Additional mileage (price per mile)',
+      price: '£2.00',
+    },
+    {
+      name: "Additional transfers of the deceased person's body",
+      price: '£165.00',
+    },
+    {
+      name: 'Collection and delivery of ashes',
+      price: 'No charge',
+    },
+    {
+      name: 'Embalming',
+      price: '£195',
+    },
+    {
+      name: 'Funeral officiant (e.g. celebrant, minister of religion etc.)',
+      price: '£180 - £250',
+    },
+    {
+      name: 'Services supplied outside of normal office hours',
+      price: 'Prices on request',
+    },
+  ],
+};
+
 export default function FuneralCostsPage() {
-  const [activeTab, setActiveTab] = useState('professional');
+  const [activeTab, setActiveTab] = useState(priceCategories[0].id);
 
   const formatPrice = (price: number | string) => {
     if (typeof price === 'string') return price;
@@ -660,6 +690,129 @@ export default function FuneralCostsPage() {
             </p>
           </div>
         </FadeInUp>
+      </section>
+
+      {/* Standardised Price List */}
+      <section className="standardised-section">
+        <div className="standardised-container">
+          <FadeInUp>
+            <h2 className="pricelist-heading">Standardised Price List</h2>
+            <p className="pricelist-subheading">
+              A legally required summary format to help you compare core funeral
+              director charges and common additional fees.
+            </p>
+          </FadeInUp>
+
+          <div className="standardised-sheet">
+            <p className="standardised-intro">
+              All funeral directors are legally required to publish this price
+              list for a standardised set of products and services. This is to
+              help you think through your options and make choices, and to let
+              you compare prices between different funeral directors (because
+              prices can vary).
+            </p>
+
+            <div className="standardised-block">
+              <div className="standardised-block-header">
+                <h3>ATTENDED FUNERAL (funeral director&apos;s charges only)</h3>
+                <div className="standardised-total-wrap">
+                  <span>{standardisedPriceList.attended.note}</span>
+                  <strong>{standardisedPriceList.attended.total}</strong>
+                </div>
+              </div>
+              <div className="standardised-rows">
+                {standardisedPriceList.attended.items.map((item) => (
+                  <div key={item.name} className="standardised-row">
+                    <span>{item.name}</span>
+                    <strong>{item.price}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="standardised-block">
+              <div className="standardised-block-header">
+                <h3>UNATTENDED FUNERAL</h3>
+              </div>
+              <div className="standardised-rows">
+                {standardisedPriceList.unattended.map((item) => (
+                  <div key={item.name} className="standardised-row">
+                    <span>{item.name}</span>
+                    <strong>{item.price}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="standardised-block">
+              <div className="standardised-block-header">
+                <h3>FEES YOU MUST PAY</h3>
+              </div>
+              <div className="standardised-rows">
+                {standardisedPriceList.feesYouMustPay.map((item) => (
+                  <div key={item.name}>
+                    <div className="standardised-row">
+                      <span>
+                        {item.hasFootnote === 1 ? (
+                          <>
+                            For an Attended or Unattended burial funeral, the{' '}
+                            <strong>burial fee</strong>.
+                            <sup>{item.hasFootnote}</sup>
+                          </>
+                        ) : item.hasFootnote === 2 ? (
+                          <>
+                            For an Attended cremation funeral, the{' '}
+                            <strong>cremation fee</strong>.
+                            <sup>{item.hasFootnote}</sup>
+                          </>
+                        ) : (
+                          item.name
+                        )}
+                      </span>
+                      {item.price && <strong>{item.price}</strong>}
+                    </div>
+                    {item.description && (
+                      <div className="standardised-row-description">
+                        {item.description}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="standardised-religious-note">
+              <p>
+                Please discuss any specific religious, belief-based and/or
+                cultural requirements that you have with the funeral director.
+              </p>
+            </div>
+
+            <div className="standardised-block">
+              <div className="standardised-block-header">
+                <h3>ADDITIONAL FUNERAL DIRECTOR PRODUCTS AND SERVICES</h3>
+              </div>
+              <div className="standardised-rows">
+                {standardisedPriceList.additional.map((item) => (
+                  <div key={item.name} className="standardised-row">
+                    <span>{item.name}</span>
+                    <strong>{item.price}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <p className="standardised-footnote">
+              1 The burial fee is the charge made for digging and closing a new
+              grave, or for reopening and closing an existing grave.
+            </p>
+            <p className="standardised-footnote">
+              2 In England, Wales and Northern Ireland, you will usually need to
+              pay doctors&apos; fees as well. This is the charge for two doctors
+              to sign the Medical Certificates for Cremation.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Detailed Price List with Tabs */}
