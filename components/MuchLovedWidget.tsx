@@ -28,6 +28,74 @@ export default function MuchLovedWidget({
   const containerRef = useRef<HTMLDivElement>(null);
   const [hasSearchResults, setHasSearchResults] = useState(false);
 
+  const sanitizeTributeCards = (root: ParentNode) => {
+    const notices = root.querySelectorAll('.ml-notice');
+
+    notices.forEach((notice) => {
+      const details = notice.querySelector('.ml-details');
+      if (!details) return;
+      if (details.getAttribute('data-sanitized') === 'true') return;
+
+      const name = details.querySelector('h3.ml-name');
+      const paragraphs = Array.from(details.querySelectorAll('p'));
+      const locationSpan = details.querySelector('.ml-funeral-location');
+      const locationLine = locationSpan?.closest('p') ?? locationSpan;
+
+      const detailNodes = Array.from(
+        notice.querySelectorAll<HTMLElement>('time, p, span, div'),
+      );
+      const dateLine =
+        detailNodes.find((node) => {
+          const text = node.textContent?.trim() ?? '';
+          if (!text) return false;
+          if (node.classList.contains('ml-funeral-location')) return false;
+          if (node.closest('h3.ml-name')) return false;
+          if (text.length > 42) return false;
+          return (
+            /\b\d{1,2}(st|nd|rd|th)?\s+[A-Za-z]+\s+\d{4}\b/i.test(text) ||
+            /\b[A-Za-z]+\s+\d{1,2}(st|nd|rd|th)?,?\s+\d{4}\b/i.test(text) ||
+            /\b\d{1,2}[\/.-]\d{1,2}[\/.-]\d{2,4}\b/.test(text) ||
+            /date/i.test(node.className)
+          );
+        }) ??
+        paragraphs.find((p) => p !== locationLine) ??
+        null;
+
+      const viewLink = Array.from(
+        notice.querySelectorAll<HTMLAnchorElement>(
+          'a.ml-link[target="_blank"]',
+        ),
+      ).find((link) => {
+        const href = link.getAttribute('href') ?? '';
+        return (
+          href.includes('.muchloved.com') &&
+          !href.includes('Gallery') &&
+          !href.includes('Order')
+        );
+      });
+
+      if (!name || !viewLink || !locationLine) return;
+
+      const fragment = document.createDocumentFragment();
+      fragment.appendChild(name.cloneNode(true));
+
+      if (dateLine) {
+        fragment.appendChild(dateLine.cloneNode(true));
+      }
+
+      if (locationLine && locationLine !== dateLine) {
+        fragment.appendChild(locationLine.cloneNode(true));
+      }
+
+      const linkClone = viewLink.cloneNode(true) as HTMLAnchorElement;
+      linkClone.textContent = 'VIEW TRIBUTE';
+      fragment.appendChild(linkClone);
+
+      details.replaceChildren(fragment);
+      details.setAttribute('data-sanitized', 'true');
+    });
+  };
+
   useEffect(() => {
     // Remove any existing MuchLoved script to force re-initialization
     const existingScript = document.getElementById(
@@ -60,6 +128,16 @@ export default function MuchLovedWidget({
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
+
+    const runSanitizer = () => sanitizeTributeCards(container);
+
+    runSanitizer();
+
+    const detailsObserver = new MutationObserver(runSanitizer);
+    detailsObserver.observe(container, {
+      childList: true,
+      subtree: true,
+    });
 
     const searchResultsDiv = container.querySelector(
       '.muchloved-funerals-widget-search-results',
@@ -101,7 +179,10 @@ export default function MuchLovedWidget({
     // Initial check
     checkSearchResults();
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      detailsObserver.disconnect();
+    };
   }, []);
 
   // Apply limit to hide extra items via CSS

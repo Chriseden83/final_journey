@@ -2185,30 +2185,34 @@ span.ml-funeral-location {
   margin-bottom: 0.5rem;
 }
 
-/* Text clamping - limit text content within details, not the whole card */
+/* Text styling for date/cemetery lines */
 .home-tributes-widget .ml-details > p,
 .muchloved-cards .ml-details > p,
 .tributes-content .ml-details > p {
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
+  display: block !important;
   line-height: 1.5 !important;
-  max-height: 3em !important;
+  max-height: none !important;
   margin: 0 0 0.25rem 0 !important;
   padding: 0 !important;
   font-size: 0.875rem !important;
 }
 
-/* Limit total number of p elements shown */
-.home-tributes-widget .ml-details > p:nth-of-type(n + 2),
-.muchloved-cards .ml-details > p:nth-of-type(n + 2) {
+/* Keep only date and cemetery lines */
+.home-tributes-widget .ml-details > p:nth-of-type(n + 3),
+.muchloved-cards .ml-details > p:nth-of-type(n + 3),
+.tributes-content .ml-details > p:nth-of-type(n + 3) {
   display: none !important;
 }
 
 .home-tributes-widget span.ml-funeral-location,
 .muchloved-cards span.ml-funeral-location {
+  display: block !important;
+  color: var(--accent-gold);
+  font-weight: 500;
+}
+
+.tributes-content span.ml-funeral-location {
+  display: block !important;
   color: var(--accent-gold);
   font-weight: 500;
 }
