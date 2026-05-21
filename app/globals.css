@@ -3319,6 +3319,12 @@ span.ml-funeral-location {
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.35rem;
+  line-height: 1.2;
+  text-wrap: balance;
 }
 
 .pricelist-tab:hover {
@@ -3389,6 +3395,27 @@ span.ml-funeral-location {
   font-weight: 600;
   color: var(--navy-dark);
   margin-bottom: 0.25rem;
+}
+
+.price-item-content {
+  min-width: 0;
+}
+
+.price-item-content-with-image {
+  display: block;
+}
+
+.price-item-image-wrap {
+  margin-top: 0.7rem;
+}
+
+.price-item-image {
+  width: min(220px, 100%);
+  height: auto;
+  border: 2px solid rgba(169, 129, 30, 0.45);
+  border-radius: 4px;
+  display: block;
+  background: #e7dfcb;
 }
 
 .price-item-description {
@@ -3584,6 +3611,25 @@ span.ml-funeral-location {
   .info-grid {
     grid-template-columns: 1fr;
   }
+
+  .price-table-header,
+  .price-table-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .price-table-cell:first-child {
+    min-width: 0;
+  }
+
+  .price-cell {
+    justify-content: flex-end;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .price-item-image {
+    width: min(170px, 100%);
+  }
 }
 
 @media (max-width: 768px) {
@@ -3650,22 +3696,49 @@ span.ml-funeral-location {
   .pricelist-tab {
     width: 100%;
     text-align: center;
+    min-height: 3.5rem;
+    font-size: 0.82rem;
+    padding: 0.65rem 0.75rem;
   }
 
   .price-table-header,
   .price-table-row {
-    grid-template-columns: 1fr;
+    display: grid;
     gap: 0.5rem;
     padding: 1rem 1.25rem;
   }
 
+  .price-table-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
   .price-table-header .price-table-cell:last-child {
-    display: none;
+    display: block;
+    text-align: right;
+  }
+
+  .price-table-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
   }
 
   .price-cell {
-    justify-content: flex-start;
-    font-size: 1.25rem;
+    justify-content: flex-end;
+    text-align: right;
+    font-size: 1.05rem;
+    white-space: nowrap;
+  }
+
+  .price-item-content-with-image {
+    display: block;
+  }
+
+  .price-item-image-wrap {
+    margin-top: 0.6rem;
+  }
+
+  .price-item-image {
+    width: min(120px, 100%);
   }
 
   .comparison-container {

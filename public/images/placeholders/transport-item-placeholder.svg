@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="304" height="171" viewBox="0 0 304 171" role="img" aria-labelledby="title desc">
+  <title id="title">Transport placeholder image</title>
+  <desc id="desc">A neutral placeholder image for transport price list items.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#d8cfb7"/>
+      <stop offset="100%" stop-color="#cbbd96"/>
+    </linearGradient>
+  </defs>
+  <rect width="304" height="171" fill="url(#bg)"/>
+  <rect x="10" y="10" width="284" height="151" fill="none" stroke="#a9811e" stroke-opacity="0.55" stroke-width="2"/>
+  <path d="M22 123 L87 76 L136 112 L183 89 L236 123 Z" fill="#b8aa81" opacity="0.7"/>
+  <circle cx="89" cy="76" r="12" fill="#f4ebd0" opacity="0.8"/>
+  <text x="152" y="145" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#6d5316" letter-spacing="0.5">PLACEHOLDER IMAGE</text>
+</svg>

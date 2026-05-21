@@ -366,31 +366,6 @@ const priceCategories = [
     ],
   },
   {
-    id: 'burial',
-    name: 'Burial Fees',
-    items: [
-      {
-        name: 'Burial fee (local residents)',
-        price: '£350 - £1,000',
-        included: [],
-        description: 'Typical cost in this local area',
-      },
-      {
-        name: 'Existing grave and removal / replacement fees',
-        price: '£400 - £1,550',
-        included: [],
-        description:
-          'Range for existing grave use and memorial removal/replacement where applicable',
-      },
-      {
-        name: 'Cremation fee (local residents)',
-        price: '£1,025 - £1,235',
-        included: [],
-        description: 'Typical cost in this local area',
-      },
-    ],
-  },
-  {
     id: 'urns',
     name: 'Urns for Ashes',
     items: [
@@ -854,24 +829,42 @@ export default function FuneralCostsPage() {
                   {category.items.map((item, index) => (
                     <div key={index} className="price-table-row">
                       <div className="price-table-cell">
-                        <div className="price-item-name">{item.name}</div>
-                        <div className="price-item-description">
-                          {item.description}
-                        </div>
-                        {item.included.length > 0 && (
-                          <div className="price-item-included">
-                            Included in:{' '}
-                            {item.included
-                              .map((pkg) =>
-                                pkg === 'direct'
-                                  ? 'Direct'
-                                  : pkg === 'attended'
-                                    ? 'Simple Cremation with Service'
-                                    : 'Bespoke',
-                              )
-                              .join(', ')}
+                        <div className="price-item-content price-item-content-with-image">
+                          <div>
+                            <div className="price-item-name">{item.name}</div>
+                            <div className="price-item-description">
+                              {item.description}
+                            </div>
+                            {item.included.length > 0 && (
+                              <div className="price-item-included">
+                                Included in:{' '}
+                                {item.included
+                                  .map((pkg) =>
+                                    pkg === 'direct'
+                                      ? 'Direct'
+                                      : pkg === 'attended'
+                                        ? 'Simple Cremation with Service'
+                                        : 'Bespoke',
+                                  )
+                                  .join(', ')}
+                              </div>
+                            )}
+                            {!['crematorium', 'disbursements'].includes(
+                              category.id,
+                            ) && (
+                              <div className="price-item-image-wrap">
+                                <img
+                                  src="/images/placeholders/transport-item-placeholder.svg"
+                                  alt={`${item.name} placeholder image`}
+                                  className="price-item-image"
+                                  width={220}
+                                  height={124}
+                                  loading="lazy"
+                                />
+                              </div>
+                            )}
                           </div>
-                        )}
+                        </div>
                       </div>
                       <div className="price-table-cell price-cell">
                         {formatPrice(item.price)}
