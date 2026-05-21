@@ -1149,7 +1149,7 @@ html {
 .section-hero::before {
   content: '';
   @apply absolute inset-0;
-  background-image: url('/images/horses2.jpg');
+  background-image: url('/images/horses2.webp');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -1585,7 +1585,7 @@ html {
 .section-cta-banner::before {
   content: '';
   @apply absolute inset-0 opacity-10;
-  background-image: url('/images/horses3.jpg');
+  background-image: url('/images/horses3.webp');
   background-size: cover;
   background-position: center;
 }
@@ -2018,7 +2018,7 @@ span.ml-funeral-location {
 .tributes-hero::before {
   content: '';
   @apply absolute inset-0;
-  background-image: url('/images/casket3.jpg');
+  background-image: url('/images/casket3.webp');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -2604,7 +2604,7 @@ span.ml-funeral-location {
 .contact-hero::before {
   content: '';
   @apply absolute inset-0;
-  background-image: url('/images/horses2.jpg');
+  background-image: url('/images/horses2.webp');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -3535,15 +3535,19 @@ span.ml-funeral-location {
 
 .price-item-image-wrap {
   margin-top: 0.7rem;
+  width: min(240px, 100%);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
 .price-item-image {
-  width: min(240px, 100%);
-  height: auto;
+  width: 100%;
+  height: 100%;
   border: 2px solid rgba(169, 129, 30, 0.45);
   border-radius: 4px;
   display: block;
   background: #e7dfcb;
+  object-fit: cover;
 }
 
 .price-item-description {
@@ -3669,7 +3673,7 @@ span.ml-funeral-location {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/images/horses3.jpg') center/cover;
+  background: url('/images/horses3.webp') center/cover;
   opacity: 0.1;
 }
 
@@ -3756,6 +3760,10 @@ span.ml-funeral-location {
   }
 
   .price-item-image {
+    width: 100%;
+  }
+
+  .price-item-image-wrap {
     width: min(185px, 100%);
   }
 }
@@ -3866,6 +3874,10 @@ span.ml-funeral-location {
   }
 
   .price-item-image {
+    width: 100%;
+  }
+
+  .price-item-image-wrap {
     width: min(132px, 100%);
   }
 
@@ -4443,7 +4455,7 @@ span.ml-funeral-location {
 .about-hero::before {
   content: '';
   @apply absolute inset-0;
-  background-image: url('/images/casket5.jpg');
+  background-image: url('/images/casket5.webp');
   background-size: cover;
   background-position: center;
   z-index: 0;

@@ -81,14 +81,14 @@ const testimonials = [
 
 // Gallery images
 const galleryImages = [
-  { src: '/images/horses2.jpg', alt: 'Horse-drawn hearse' },
-  { src: '/images/casket2.jpg', alt: 'Floral tribute' },
-  { src: '/images/horses3.jpg', alt: 'Funeral procession' },
+  { src: '/images/horses2.webp', alt: 'Horse-drawn hearse' },
+  { src: '/images/casket2.webp', alt: 'Floral tribute' },
+  { src: '/images/horses3.webp', alt: 'Funeral procession' },
   { src: '/images/bagpipes.webp', alt: 'Bagpiper tribute' },
-  { src: '/images/service_booklet.jpg', alt: 'Order of service' },
-  { src: '/images/bike.jpg', alt: 'Motorcycle hearse' },
-  { src: '/images/casket3.jpg', alt: 'Memorial flowers' },
-  { src: '/images/bike2.jpg', alt: 'Alternative transport' },
+  { src: '/images/service_booklet.webp', alt: 'Order of service' },
+  { src: '/images/bike.webp', alt: 'Motorcycle hearse' },
+  { src: '/images/casket3.webp', alt: 'Memorial flowers' },
+  { src: '/images/bike2.webp', alt: 'Alternative transport' },
 ];
 
 export default function Home() {
@@ -180,7 +180,7 @@ export default function Home() {
             <FadeInRight delay={0.3}>
               <div className="relative h-80 md:h-96 rounded-lg overflow-hidden shadow-xl">
                 <Image
-                  src="/images/van.jpg"
+                  src="/images/van.webp"
                   alt="Final Journey funeral vehicle"
                   fill
                   className="object-cover"

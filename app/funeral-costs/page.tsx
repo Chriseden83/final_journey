@@ -407,7 +407,7 @@ const priceCategories = [
       },
       {
         name: 'Newspaper Notice',
-        price: '~£100',
+        price: '£100',
         included: [],
         description: 'Approximately - word dependent',
       },
@@ -570,6 +570,8 @@ export default function FuneralCostsPage() {
       '/images/pricelist-items/transport/only-fools-and-horses.webp',
     'Horse Drawn Carriage - Black (2 Horses)':
       '/images/pricelist-items/transport/horse-and-carriage-black.webp',
+    'Horse Drawn Carriage - White (2 Horses)':
+      '/images/pricelist-items/transport/horses-white.webp',
     'Landrover Hearse': '/images/pricelist-items/transport/landrover.webp',
     'Morris Minor Hearse':
       '/images/pricelist-items/transport/morris-minor.webp',
@@ -578,16 +580,27 @@ export default function FuneralCostsPage() {
     'Leopard Print Hearse': '/images/pricelist-items/transport/leopard.webp',
     'Union Jack Hearse': '/images/pricelist-items/transport/union-jack.webp',
     'VW Campervan': '/images/pricelist-items/transport/vw-camper.webp',
+    'Suzuki Hayabusa / Triumph / Harley Davidson':
+      '/images/pricelist-items/transport/triumph.webp',
   };
 
   const coffinsImageMap: Record<string, string> = {
+    'Simple Manilla Cardboard Coffin':
+      '/images/pricelist-items/coffins-caskets/manila-cardboard.webp',
+    'Banana Leaf': '/images/pricelist-items/coffins-caskets/banana-leaf.webp',
     'Bamboo (Traditional or Round)':
       '/images/pricelist-items/coffins-caskets/bamboo-traditional.webp',
+    'Bamboo Lattice (Traditional or Round)':
+      '/images/pricelist-items/coffins-caskets/bamboo-lattice.webp',
     'Pandanus (Wild Pineapple)':
       '/images/pricelist-items/coffins-caskets/pandanus.webp',
     Pathway: '/images/pricelist-items/coffins-caskets/pathway.webp',
     'Picture Coffin':
       '/images/pricelist-items/coffins-caskets/picture-cardboard-coffin.webp',
+    'Lily White Cardboard Coffin':
+      '/images/pricelist-items/coffins-caskets/white-cardboard.webp',
+    'Willow (Traditional or Round)':
+      '/images/pricelist-items/coffins-caskets/willow-traditional.webp',
     'Traditional Moulded Oak Veneer':
       '/images/pricelist-items/coffins-caskets/traditional-oak-veneer.webp',
   };
@@ -595,6 +608,8 @@ export default function FuneralCostsPage() {
   const shroudsImageMap: Record<string, string> = {
     'Bamboo Shroud':
       '/images/pricelist-items/shrouds-soft-coffins/bamboo-shroud.webp',
+    'Leafpod by Bellacouche':
+      '/images/pricelist-items/shrouds-soft-coffins/leafpod.webp',
     'Natural Legacy Wool Coffin (Natural Cream)':
       '/images/pricelist-items/shrouds-soft-coffins/wool-cream.webp',
     'Natural Legacy Wool Coffin (Limestone Grey)':
@@ -608,7 +623,8 @@ export default function FuneralCostsPage() {
       '/images/pricelist-items/urns/scatter-tubes.webp',
     'Natural Bamboo/Wicker/Pandanus/Banana Leaf':
       '/images/pricelist-items/urns/wicker.webp',
-    'Solid Oak Wooden Casket': '/images/pricelist-items/urns/wooden-casket.webp',
+    'Solid Oak Wooden Casket':
+      '/images/pricelist-items/urns/wooden-casket.webp',
   };
 
   const categoryImageMap: Record<string, Record<string, string>> = {

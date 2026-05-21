@@ -189,7 +189,7 @@ export default function AnimatedAboutContent() {
             <FadeInLeft delay={0.2}>
               <div className="about-intro-image">
                 <Image
-                  src="/images/casket4.jpg"
+                  src="/images/casket4.webp"
                   alt="Final Journey caring service"
                   fill
                   className="object-cover"
