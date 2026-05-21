@@ -580,6 +580,44 @@ export default function FuneralCostsPage() {
     'VW Campervan': '/images/pricelist-items/transport/vw-camper.webp',
   };
 
+  const coffinsImageMap: Record<string, string> = {
+    'Bamboo (Traditional or Round)':
+      '/images/pricelist-items/coffins-caskets/bamboo-traditional.webp',
+    'Pandanus (Wild Pineapple)':
+      '/images/pricelist-items/coffins-caskets/pandanus.webp',
+    Pathway: '/images/pricelist-items/coffins-caskets/pathway.webp',
+    'Picture Coffin':
+      '/images/pricelist-items/coffins-caskets/picture-cardboard-coffin.webp',
+    'Traditional Moulded Oak Veneer':
+      '/images/pricelist-items/coffins-caskets/traditional-oak-veneer.webp',
+  };
+
+  const shroudsImageMap: Record<string, string> = {
+    'Bamboo Shroud':
+      '/images/pricelist-items/shrouds-soft-coffins/bamboo-shroud.webp',
+    'Natural Legacy Wool Coffin (Natural Cream)':
+      '/images/pricelist-items/shrouds-soft-coffins/wool-cream.webp',
+    'Natural Legacy Wool Coffin (Limestone Grey)':
+      '/images/pricelist-items/shrouds-soft-coffins/wool-limestone.webp',
+    'Leafcocoon by Bellacouche':
+      '/images/pricelist-items/shrouds-soft-coffins/Leafcocoon.webp',
+  };
+
+  const urnsImageMap: Record<string, string> = {
+    'Cardboard Pictorial Scatter Tube':
+      '/images/pricelist-items/urns/scatter-tubes.webp',
+    'Natural Bamboo/Wicker/Pandanus/Banana Leaf':
+      '/images/pricelist-items/urns/wicker.webp',
+    'Solid Oak Wooden Casket': '/images/pricelist-items/urns/wooden-casket.webp',
+  };
+
+  const categoryImageMap: Record<string, Record<string, string>> = {
+    transport: transportImageMap,
+    coffins: coffinsImageMap,
+    shrouds: shroudsImageMap,
+    urns: urnsImageMap,
+  };
+
   const formatPrice = (price: number | string) => {
     if (typeof price === 'string') return price;
     if (price === 0) return 'Included';
@@ -878,10 +916,9 @@ export default function FuneralCostsPage() {
                               <div className="price-item-image-wrap">
                                 {(() => {
                                   const imageSrc =
-                                    category.id === 'transport'
-                                      ? (transportImageMap[item.name] ??
-                                        placeholderImageSrc)
-                                      : placeholderImageSrc;
+                                    categoryImageMap[category.id]?.[
+                                      item.name
+                                    ] ?? placeholderImageSrc;
 
                                   return (
                                     <img
