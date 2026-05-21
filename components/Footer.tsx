@@ -2,6 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
+const quickLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Us' },
+  { href: '/#services', label: 'Services' },
+  { href: '/what-to-do-when-someone-dies', label: 'What to Do?' },
+  { href: '/grief-chat', label: 'Grief Chat' },
+  { href: '/tributes', label: 'Tributes' },
+  { href: '/funeral-costs', label: 'Prices' },
+  { href: '/contact', label: 'Contact' },
+];
+
 // Server component - no client state needed
 const Footer = () => {
   return (
@@ -9,7 +20,7 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-grid">
           {/* Brand Column */}
-          <div className="space-y-4">
+          <div className="footer-brand space-y-4">
             <div className="flex items-center gap-3">
               <Image
                 src="/icons/logo.svg"
@@ -29,7 +40,7 @@ const Footer = () => {
           </div>
 
           {/* Contact Column */}
-          <div>
+          <div className="footer-contact">
             <h3 className="footer-heading">Contact Us</h3>
             <div className="space-y-3">
               <a href="tel:01228595060" className="footer-link block">
@@ -43,29 +54,22 @@ const Footer = () => {
           </div>
 
           {/* Quick Links Column */}
-          <div>
+          <div className="footer-quick-links">
             <h3 className="footer-heading">Quick Links</h3>
-            <nav className="footer-links" aria-label="Footer navigation">
-              <Link href="/" className="footer-link">
-                Home
-              </Link>
-              <Link href="/about" className="footer-link">
-                About Us
-              </Link>
-              <Link href="/services" className="footer-link">
-                Services
-              </Link>
-              <Link href="/tributes" className="footer-link">
-                Tributes
-              </Link>
-              <Link href="/contact" className="footer-link">
-                Contact
-              </Link>
+            <nav
+              className="footer-links footer-links-two-column"
+              aria-label="Footer navigation"
+            >
+              {quickLinks.map((link) => (
+                <Link key={link.href} href={link.href} className="footer-link">
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </div>
 
           {/* Social Column */}
-          <div>
+          <div className="footer-social">
             <h3 className="footer-heading">Follow Us</h3>
             <div className="flex gap-4">
               <a

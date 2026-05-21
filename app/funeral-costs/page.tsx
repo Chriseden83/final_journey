@@ -556,6 +556,29 @@ const standardisedPriceList = {
 
 export default function FuneralCostsPage() {
   const [activeTab, setActiveTab] = useState(priceCategories[0].id);
+  const placeholderImageSrc =
+    '/images/placeholders/transport-item-placeholder.svg';
+
+  const transportImageMap: Record<string, string> = {
+    'Traditional Black Hearse':
+      '/images/pricelist-items/transport/traditional-hearse.webp',
+    'Black Limousine': '/images/pricelist-items/transport/black-Limo.webp',
+    'Silver Hearse': '/images/pricelist-items/transport/silver-hearse.webp',
+    'Armed Forces Hearse':
+      '/images/pricelist-items/transport/armed-forces.webp',
+    'Only Fools and Hearses (Trotters)':
+      '/images/pricelist-items/transport/only-fools-and-horses.webp',
+    'Horse Drawn Carriage - Black (2 Horses)':
+      '/images/pricelist-items/transport/horse-and-carriage-black.webp',
+    'Landrover Hearse': '/images/pricelist-items/transport/landrover.webp',
+    'Morris Minor Hearse':
+      '/images/pricelist-items/transport/morris-minor.webp',
+    'Rainbow Hearse': '/images/pricelist-items/transport/rainbow.webp',
+    'Pink Hearse': '/images/pricelist-items/transport/pink.webp',
+    'Leopard Print Hearse': '/images/pricelist-items/transport/leopard.webp',
+    'Union Jack Hearse': '/images/pricelist-items/transport/union-jack.webp',
+    'VW Campervan': '/images/pricelist-items/transport/vw-camper.webp',
+  };
 
   const formatPrice = (price: number | string) => {
     if (typeof price === 'string') return price;
@@ -853,14 +876,24 @@ export default function FuneralCostsPage() {
                               category.id,
                             ) && (
                               <div className="price-item-image-wrap">
-                                <img
-                                  src="/images/placeholders/transport-item-placeholder.svg"
-                                  alt={`${item.name} placeholder image`}
-                                  className="price-item-image"
-                                  width={220}
-                                  height={124}
-                                  loading="lazy"
-                                />
+                                {(() => {
+                                  const imageSrc =
+                                    category.id === 'transport'
+                                      ? (transportImageMap[item.name] ??
+                                        placeholderImageSrc)
+                                      : placeholderImageSrc;
+
+                                  return (
+                                    <img
+                                      src={imageSrc}
+                                      alt={`${item.name} image`}
+                                      className="price-item-image"
+                                      width={220}
+                                      height={124}
+                                      loading="lazy"
+                                    />
+                                  );
+                                })()}
                               </div>
                             )}
                           </div>
