@@ -415,19 +415,19 @@ const priceCategories = [
         name: 'Floristry',
         price: 'POA',
         included: [],
-        description: 'Prices on request',
+        description: 'POA',
       },
       {
         name: 'Webcasting/Live Streaming/Recording',
         price: 'POA',
         included: [],
-        description: 'Prices on request',
+        description: 'POA',
       },
       {
         name: 'Photographer',
         price: 'POA',
         included: [],
-        description: 'Prices on request',
+        description: 'POA',
       },
       {
         name: 'Printing (Order of Service)',
@@ -463,7 +463,25 @@ const uspFeatures = [
   },
 ];
 
-const standardisedPriceList = {
+type StandardisedPriceListItem = {
+  name: string;
+  price: string;
+  description?: string;
+  hasFootnote?: number;
+};
+
+type StandardisedPriceList = {
+  attended: {
+    total: string;
+    note: string;
+    items: StandardisedPriceListItem[];
+  };
+  unattended: StandardisedPriceListItem[];
+  feesYouMustPay: StandardisedPriceListItem[];
+  additional: StandardisedPriceListItem[];
+};
+
+const standardisedPriceList: StandardisedPriceList = {
   attended: {
     total: '£1,995.00',
     note: 'See breakdown of costs below.',
@@ -507,23 +525,17 @@ const standardisedPriceList = {
   feesYouMustPay: [
     {
       name: 'For an Attended or Unattended burial funeral, the burial fee.',
-      price: 'see below',
+      price: '£400 - £1,000',
       hasFootnote: 1,
     },
     {
-      name: 'In this local area, the typical cost of the burial fee for local residents is:',
-      price: '£350 - £1,000',
-      description:
-        'For a new grave, you will also need to pay for the plot; for an existing grave with a memorial in place, you may need to pay a removal/replacement fee. In addition, the cemetery may charge a number of other fees.',
+      name: 'For a new grave, you will also need to pay for the plot; for an existing grave with a memorial in place, you may need to pay a removal/replacement fee. In addition, the cemetery may charge a number of other fees.',
+      price: '£400 - £1,550',
     },
     {
       name: 'For an Attended cremation funeral, the cremation fee.',
-      price: 'See below',
+      price: '£1,150 - £1,235',
       hasFootnote: 2,
-    },
-    {
-      name: 'In this local area, the typical cost of a cremation for local residents is:',
-      price: '£1,025 - £1,235',
     },
   ],
   additional: [
@@ -533,7 +545,7 @@ const standardisedPriceList = {
     },
     {
       name: "Additional transfers of the deceased person's body",
-      price: '£165.00',
+      price: '£200',
     },
     {
       name: 'Collection and delivery of ashes',
@@ -541,15 +553,15 @@ const standardisedPriceList = {
     },
     {
       name: 'Embalming',
-      price: '£195',
+      price: 'POA',
     },
     {
       name: 'Funeral officiant (e.g. celebrant, minister of religion etc.)',
-      price: '£180 - £250',
+      price: '£200 - £300',
     },
     {
       name: 'Services supplied outside of normal office hours',
-      price: 'Prices on request',
+      price: 'POA',
     },
   ],
 };
@@ -809,13 +821,17 @@ export default function FuneralCostsPage() {
                           <>
                             For an Attended or Unattended burial funeral, the{' '}
                             <strong>burial fee</strong>.
-                            <sup>{item.hasFootnote}</sup>
+                            <sup>{item.hasFootnote}</sup> In this local area,
+                            the typical cost of the burial fee for local
+                            residents is:
                           </>
                         ) : item.hasFootnote === 2 ? (
                           <>
                             For an Attended cremation funeral, the{' '}
                             <strong>cremation fee</strong>.
-                            <sup>{item.hasFootnote}</sup>
+                            <sup>{item.hasFootnote}</sup> In this local area,
+                            the typical cost of a cremation for local residents
+                            is:
                           </>
                         ) : (
                           item.name
