@@ -82,12 +82,6 @@ const priceCategories = [
         description: 'With rope handles',
       },
       {
-        name: 'Light Woodgrain Coffin',
-        price: 395,
-        included: [],
-        description: 'Cardboard coffin with wood effect',
-      },
-      {
         name: 'Traditional Wood Veneered',
         price: 395,
         included: ['attended'],
@@ -154,22 +148,10 @@ const priceCategories = [
         description: 'Wooden coffin with printed design',
       },
       {
-        name: 'Solid Oak',
-        price: 995,
-        included: [],
-        description: 'Premium quality solid oak',
-      },
-      {
         name: 'Pathway',
         price: 995,
         included: [],
         description: 'Premium wooden coffin',
-      },
-      {
-        name: 'Bespoke Pictorial',
-        price: 'POA',
-        included: [],
-        description: 'Custom design to your specification',
       },
     ],
   },
@@ -256,18 +238,6 @@ const priceCategories = [
         description: 'Price on application for distance',
       },
       {
-        name: 'Motorbike Hearse and Sidecar',
-        price: '£895+',
-        included: [],
-        description: 'Distance dependent',
-      },
-      {
-        name: 'VW Bay Hearse / Split Screen / Passenger Bus',
-        price: '£995+',
-        included: [],
-        description: 'Distance dependent',
-      },
-      {
         name: 'Landrover Hearse',
         price: '£995+',
         included: [],
@@ -304,18 +274,6 @@ const priceCategories = [
         description: 'Distance dependent',
       },
       {
-        name: 'Vintage Lorry',
-        price: 'POA',
-        included: [],
-        description: 'Price on application',
-      },
-      {
-        name: 'VW Campervan',
-        price: 'POA',
-        included: [],
-        description: 'Price on application',
-      },
-      {
         name: 'Suzuki Hayabusa / Triumph / Harley Davidson',
         price: 'POA',
         included: [],
@@ -329,37 +287,37 @@ const priceCategories = [
     items: [
       {
         name: 'Carlisle',
-        price: '£1,150 / £650',
+        price: '£1235.00 / £700',
         included: [],
         description: 'Attended (Mon-Fri) / Unattended',
       },
       {
         name: 'Roucan Loch (Dumfries)',
-        price: '£999 / £595',
+        price: '£1095 / £595',
         included: [],
         description: 'Attended (Mon-Fri) / Unattended',
       },
       {
         name: 'Distington (Workington)',
-        price: '£1,150 / £650',
+        price: '£1235.00 / £700',
         included: [],
         description: 'Attended (Mon-Fri) / Unattended',
       },
       {
         name: 'Eden Valley (Temple, Sowerby, Penrith)',
-        price: '£975 / £550',
+        price: '£1150.00 / £600',
         included: [],
         description: 'Attended (Mon-Fri) / Unattended',
       },
       {
         name: 'Beetham Hall (Milnthorpe)',
-        price: '£1,025 / £800',
+        price: '£1150.00 / £600',
         included: [],
         description: 'Attended (Mon-Fri) / Unattended',
       },
       {
         name: 'Lancaster',
-        price: '£1,230 / £550',
+        price: '£1,275 / £575',
         included: [],
         description: 'Attended (Mon-Fri) / Unattended',
       },
@@ -407,7 +365,7 @@ const priceCategories = [
       },
       {
         name: 'Newspaper Notice',
-        price: '£100',
+        price: '£130',
         included: [],
         description: 'Approximately - word dependent',
       },
@@ -591,30 +549,37 @@ export default function FuneralCostsPage() {
     'Pink Hearse': '/images/pricelist-items/transport/pink.webp',
     'Leopard Print Hearse': '/images/pricelist-items/transport/leopard.webp',
     'Union Jack Hearse': '/images/pricelist-items/transport/union-jack.webp',
-    'VW Campervan': '/images/pricelist-items/transport/vw-camper.webp',
     'Suzuki Hayabusa / Triumph / Harley Davidson':
-      '/images/pricelist-items/transport/triumph.webp',
+      '/images/pricelist-items/transport/suzuki-hayabusa.webp',
   };
 
   const coffinsImageMap: Record<string, string> = {
     'Simple Manilla Cardboard Coffin':
       '/images/pricelist-items/coffins-caskets/manila-cardboard.webp',
-    'Banana Leaf': '/images/pricelist-items/coffins-caskets/banana-leaf.webp',
-    'Bamboo (Traditional or Round)':
-      '/images/pricelist-items/coffins-caskets/bamboo-traditional.webp',
-    'Bamboo Lattice (Traditional or Round)':
-      '/images/pricelist-items/coffins-caskets/bamboo-lattice.webp',
-    'Pandanus (Wild Pineapple)':
-      '/images/pricelist-items/coffins-caskets/pandanus.webp',
-    Pathway: '/images/pricelist-items/coffins-caskets/pathway.webp',
-    'Picture Coffin':
-      '/images/pricelist-items/coffins-caskets/picture-cardboard-coffin.webp',
     'Lily White Cardboard Coffin':
       '/images/pricelist-items/coffins-caskets/white-cardboard.webp',
-    'Willow (Traditional or Round)':
-      '/images/pricelist-items/coffins-caskets/willow-traditional.webp',
+    'Traditional Wood Veneered':
+      '/images/pricelist-items/coffins-caskets/traditional-oak.webp',
+    'Bamboo (Traditional or Round)':
+      '/images/pricelist-items/coffins-caskets/bamboo-traditional.webp',
     'Traditional Moulded Oak Veneer':
       '/images/pricelist-items/coffins-caskets/traditional-oak-veneer.webp',
+    'Bamboo Lattice (Traditional or Round)':
+      '/images/pricelist-items/coffins-caskets/bamboo-lattice.webp',
+    'Picture Coffin':
+      '/images/pricelist-items/coffins-caskets/picture-cardboard-coffin.webp',
+    'Willow (Traditional or Round)':
+      '/images/pricelist-items/coffins-caskets/willow-traditional.webp',
+    'Willow (Teardrop)':
+      '/images/pricelist-items/coffins-caskets/teardrop-willow.webp',
+    'Banana Leaf': '/images/pricelist-items/coffins-caskets/banana-leaf.webp',
+    'Pandanus (Wild Pineapple)':
+      '/images/pricelist-items/coffins-caskets/pandanus.webp',
+    'Bulrush and Willow':
+      '/images/pricelist-items/coffins-caskets/bulrushandWillow.webp',
+    'Standard Pictorial':
+      '/images/pricelist-items/coffins-caskets/standard-pictorial.webp',
+    Pathway: '/images/pricelist-items/coffins-caskets/pathway.webp',
   };
 
   const shroudsImageMap: Record<string, string> = {
