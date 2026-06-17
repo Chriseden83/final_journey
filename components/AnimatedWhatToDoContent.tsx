@@ -138,18 +138,70 @@ export default function AnimatedWhatToDoContent() {
               </h2>
 
               <div className="guide-card">
-                <h3>If the person dies at home</h3>
+                <h3>Immediately after someone dies</h3>
                 <p>
-                  Contact your doctor no matter what time of day it is. They
-                  will arrange to come and confirm death, issuing you with a
-                  &apos;medical certificate&apos; to confirm the cause of death.
-                  The person&apos;s body cannot be moved until this has
-                  happened.
+                  The first thing to do when someone dies depends on the
+                  circumstances of their death.
+                </p>
+
+                <h4>If someone dies at home and their death was expected</h4>
+                <p>
+                  Call their GP practice and nearest relative (if that&apos;s
+                  not you). First, a doctor or nurse will come to verify the
+                  death. A doctor will then complete their part of a medical
+                  certificate, which explains the cause of death. This is then
+                  sent to a medical examiner (a senior doctor) who reviews it.
+                  The medical examiner or one of their team will then speak to
+                  the nearest relative to check they understand and agree with
+                  the medical certificate.
                 </p>
                 <p>
-                  If you already know that you would like the person cremated,
-                  tell your doctor as they will need to prepare different forms
-                  and make further arrangements.
+                  You can ask the medical examiner questions and raise any
+                  concerns you have about the death at this stage. You’ll also
+                  be given a formal notice stating that the MCCD has been
+                  signed. This notice tells you how to register the death. Then,
+                  when you feel ready to do so, you can contact a funeral
+                  director of your choice who will move the body.
+                </p>
+
+                <h4>If someone dies at home unexpectedly</h4>
+                <p>
+                  Call 999 immediately and explain what&apos;s happened. The
+                  death will need to be reported to the coroner if the cause of
+                  death is unknown, unclear, or unnatural — such as the result
+                  of an accident.
+                </p>
+                <p>
+                  A coroner is a lawyer with the legal duty to investigate
+                  unexpected deaths (some coroners are also doctors). The
+                  coroner may order a post-mortem examination to determine the
+                  cause of death. This may take some time, so the funeral may
+                  need to be delayed. You cannot refuse the examination, but you
+                  can tell them if you need to arrange the funeral quickly for
+                  faith reasons.
+                </p>
+                <p>
+                  When someone dies unexpectedly, the police will also be called
+                  to do a routine visit. They&apos;ll ask questions about the
+                  circumstances of the death which may be used to help the
+                  coroner to understand the cause of death. This can be
+                  unsettling but it&apos;s important to remember that it is
+                  normal procedure in these circumstances.
+                </p>
+
+                <h4>If someone dies in hospital</h4>
+                <p>
+                  The hospital will explain the steps you need to take. After
+                  the death has been verified by a first doctor or nurse, the
+                  cause of death will then usually be checked by the medical
+                  examiner, who will then issue MCCD and a formal notice will be
+                  issued directly to the registrar.
+                </p>
+                <p>
+                  The body will usually be kept in the hospital mortuary until
+                  the relatives arrange for it to be taken to the funeral
+                  director&apos;s premises or taken home. If an MCCD can’t be
+                  issued, the hospital will refer the death to the coroner.
                 </p>
               </div>
 
@@ -278,44 +330,49 @@ export default function AnimatedWhatToDoContent() {
               </h2>
 
               <div className="guide-card">
-                <h3>Within 5 days of issue of the Medical Certificate</h3>
-                <p>
-                  If the person has not been seen by a doctor within the last 28
-                  days, the death may be referred to a coroner.
-                </p>
                 <p>
                   After someone dies, their doctor must confirm the death before
                   contacting the medical examiner. This can take a few days.
                 </p>
                 <p>
                   A medical examiner will then check the cause of death to make
-                  sure it&apos;s accurate. They will be a senior doctor and they
-                  will not have been involved in the care of the person who has
-                  died.
+                  sure it’s accurate. They will be a senior doctor and they will
+                  not have been involved in the care of the person who has died.
                 </p>
-                <p>
-                  The medical examiner&apos;s office will then contact you to:
-                </p>
+                <p>The medical examiner’s office will then contact you to:</p>
                 <ul>
-                  <li>Explain the cause of death</li>
+                  <li>explain the cause of death</li>
                   <li>
-                    Answer any questions about this or the healthcare provided
-                    to the person before they died
+                    answer any questions you have about this or the healthcare
+                    provided to the person before they died
                   </li>
                 </ul>
                 <p>This is voluntary and you do not have to speak to them.</p>
+                <h4>Registering the death</h4>
                 <p>
-                  You must wait for the medical examiner&apos;s office to
-                  confirm you can register the death.
+                  You must wait for the medical examiner’s office to confirm you
+                  can register the death.
                 </p>
                 <p>
-                  Register the death within 5 days (8 days in Scotland) of
-                  getting this confirmation. This includes weekends and bank
-                  holidays.
+                  <a href="https://www.gov.uk/register-a-death">
+                    Register the death
+                  </a>{' '}
+                  within 5 days (8 days in Scotland) of getting the
+                  confirmation. This includes weekends and bank holidays.
                 </p>
                 <p>
                   If you need more than 5 days, you must tell the register
                   office immediately.
+                </p>
+                <h4>After you’ve registered the death</h4>
+                <p>
+                  You’ll receive a certificate for burial or cremation (often
+                  called ‘the green form’).
+                </p>
+                <p>
+                  Give the certificate to your funeral director, crematorium or
+                  burial authority. You must do this before the funeral can take
+                  place.
                 </p>
               </div>
 

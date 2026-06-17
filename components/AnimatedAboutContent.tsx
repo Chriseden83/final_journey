@@ -129,8 +129,12 @@ const differentiators = [
 const accreditations = [
   { name: 'Good Funeral Guild', description: 'Member' },
   { name: 'Natural Death Centre', description: 'Recommended' },
-  { name: 'Green Funeral Directors', description: 'Affiliated' },
+  {
+    name: 'Association of Green Funeral Directors',
+    description: 'Affiliated',
+  },
   { name: 'Three Best Rated', description: 'Top 3 in Carlisle' },
+  { name: 'The Good Food Guide', description: 'Recommended' },
 ];
 
 // Testimonials
@@ -333,7 +337,7 @@ export default function AnimatedAboutContent() {
             <FadeInRight delay={0.3}>
               <div className="about-team-image">
                 <Image
-                  src="/images/support.webp"
+                  src="/images/tracy.webp"
                   alt="Tracy Lazonby - Funeral Director"
                   fill
                   className="object-cover"

@@ -1149,7 +1149,7 @@ html {
 .section-hero::before {
   content: '';
   @apply absolute inset-0;
-  background-image: url('/images/horses2.webp');
+  background-image: url('/images/hero.webp');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -2608,7 +2608,7 @@ span.ml-funeral-location {
 .contact-hero::before {
   content: '';
   @apply absolute inset-0;
-  background-image: url('/images/horses2.webp');
+  background-image: url('/images/hero2.webp');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -3930,12 +3930,12 @@ span.ml-funeral-location {
 .guide-hero::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('/images/service_booklet.webp') center/cover;
+  inset: 0;
+  background-image: url('/images/hero3.webp') !important;
+  background-size: cover !important;
+  background-position: center bottom !important;
   opacity: 0.1;
+  z-index: 0;
 }
 
 .guide-hero-content {
