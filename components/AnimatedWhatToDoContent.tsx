@@ -103,13 +103,20 @@ export default function AnimatedWhatToDoContent() {
             <div className="overview-grid">
               <div className="overview-card">
                 <ClipboardList className="overview-icon" />
-                <h3>Obtain a Medical Certificate</h3>
-                <p>Contact the doctor to confirm death and receive paperwork</p>
+                <h3>Wait for Confirmation that the MCCD has been issued</h3>
+                <p>
+                  Wait for confirmation from the Medical Examiner that the MCCD
+                  (Medical Certificate of Cause of Death) has been issued – Be
+                  patient, this can take several days.
+                </p>
               </div>
               <div className="overview-card">
                 <Building2 className="overview-icon" />
                 <h3>Register the Death</h3>
-                <p>Visit the registrar within 5 days with the certificate</p>
+                <p>
+                  Register the death within 5 days (8 days in Scotland) of
+                  getting the confirmation from the Medical Examiner or Coroner.
+                </p>
               </div>
               <div className="overview-card">
                 <Users className="overview-icon" />

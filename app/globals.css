@@ -395,6 +395,39 @@ button:focus:not(:focus-visible) {
   color: var(--accent-gold);
 }
 
+/* Overview cards: ensure subtext lines start at the same vertical position */
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.overview-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 8rem; /* ensures cards have consistent height */
+}
+
+.overview-card h3 {
+  margin: 0 0 0.5rem 0;
+  /* reserve consistent space for headings so paragraphs align */
+  min-height: 5.6rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.overview-card p {
+  margin: 0;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .overview-card h3 {
+    min-height: 3.8rem;
+  }
+}
+
 .mobile-premium-phone-status .status-open {
   color: #4ade80;
 }
