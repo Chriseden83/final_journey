@@ -397,26 +397,25 @@ export default function AnimatedWhatToDoContent() {
                 <h3>After registration you will receive:</h3>
                 <ul>
                   <li>
-                    <strong>A green form</strong> &ndash; to allow arrangements
-                    for burial or cremation. Give this to the Funeral Directors
-                    or directly to the burial/cremation authorities.
+                    A certificate for burial or cremation (known as a 'Green
+                    Form')
                   </li>
                   <li>
-                    <strong>Registration/Notification of Death Form</strong>{' '}
-                    &ndash; for Social Security purposes. Complete and return to
-                    any local DWP office without delay.
+                    A unique code, so that you can use the Tell Us Once service
                   </li>
                   <li>
-                    <strong>Death certificates</strong> &ndash; may be required
-                    by banks, building societies, solicitors, insurance and
-                    pension claims. Cost approximately £12.50 each at time of
-                    registration.
+                    A death certificate, which you need to pay for. This is a
+                    certified copy of what’s recorded in the death register and
+                    you need it to deal with the person’s estate, including
+                    their finances or property.
                   </li>
                 </ul>
                 <p className="guide-tip">
-                  <strong>Tip:</strong> Purchase several death certificates at
-                  registration &ndash; many organisations require originals, not
-                  photocopies.
+                  <strong>Tip:</strong> It can be a good idea to pay for some
+                  extra copies of the death certificate, as you might need them
+                  when you're sorting out the estate of the person who's died.
+                  Ordinary photocopies aren’t accepted by some organisations,
+                  such as banks or life insurance companies.
                 </p>
               </div>
 
